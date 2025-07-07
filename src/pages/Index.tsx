@@ -1,5 +1,6 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
+import Welcome from "@/components/Welcome";
 import MenuSection from "@/components/MenuSection";
 import Footer from "@/components/Footer";
 
@@ -39,7 +40,11 @@ const Index = () => {
         <Hero />
       </div>
 
-      <div id="breakfast" className="bg-background">
+      <div id="about">
+        <Welcome />
+      </div>
+
+      <div id="menu" className="bg-background">
         <MenuSection
           title="Breakfast & Brunch"
           description="Start your day the Italian way with our authentic breakfast selections. From perfectly brewed espresso to fresh cornetti, every morning becomes a celebration of Italian culinary tradition."
