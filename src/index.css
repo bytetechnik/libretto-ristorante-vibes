@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Italian Cafe Design System - Warm, elegant palette */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Italian Cafe Colors */
+    --background: 30 20% 97%; /* Warm cream */
+    --foreground: 25 20% 15%; /* Rich coffee brown */
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 30 25% 95%; /* Soft cream */
+    --card-foreground: 25 20% 15%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 30 25% 95%;
+    --popover-foreground: 25 20% 15%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Italian Gold & Coffee */
+    --primary: 35 45% 45%; /* Warm golden brown */
+    --primary-foreground: 30 20% 97%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 25 30% 25%; /* Deep coffee */
+    --secondary-foreground: 30 20% 97%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 30 15% 88%; /* Light beige */
+    --muted-foreground: 25 15% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 40 65% 55%; /* Italian gold */
+    --accent-foreground: 25 20% 15%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 65% 55%;
+    --destructive-foreground: 30 20% 97%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 30 20% 85%;
+    --input: 30 20% 90%;
+    --ring: 35 45% 45%;
 
-    --radius: 0.5rem;
+    /* Design System Extensions */
+    --cream: 30 20% 97%;
+    --coffee: 25 20% 15%;
+    --espresso: 20 25% 12%;
+    --cappuccino: 25 25% 85%;
+    --italian-gold: 40 65% 55%;
+    --warm-gold: 35 45% 45%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(var(--cream)), hsl(var(--cappuccino)));
+    --gradient-gold: linear-gradient(135deg, hsl(var(--italian-gold)), hsl(var(--warm-gold)));
+    --gradient-coffee: linear-gradient(135deg, hsl(var(--coffee)), hsl(var(--espresso)));
+    
+    /* Shadows */
+    --shadow-elegant: 0 8px 25px -8px hsl(var(--coffee) / 0.15);
+    --shadow-gold: 0 8px 25px -8px hsl(var(--italian-gold) / 0.25);
+    
+    /* Transitions */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +121,23 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Fade-in animation */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
 }
