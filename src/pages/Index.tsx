@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Welcome from "@/components/Welcome";
 import MenuSlider from "@/components/MenuSlider";
+import Facilities from "@/components/Facilities";
 import Footer from "@/components/Footer";
 
 const Index = () => {
@@ -20,6 +21,8 @@ const Index = () => {
       <div id="menu">
         <MenuSlider />
       </div>
+
+      <Facilities />
 
       <Footer />
     </div>
