@@ -31,8 +31,8 @@ const MenuSlider = () => {
         "Yogurt con Miele",
         "Frutta di Stagione"
       ],
-      bgColor: "from-amber-50 to-orange-50",
-      accentColor: "amber"
+      bgColor: "from-cream via-cappuccino/30 to-cream",
+      accentColor: "warm-gold"
     },
     {
       id: "summer",
@@ -47,8 +47,8 @@ const MenuSlider = () => {
         "Gazpacho Italiano",
         "Spritz al Limoncello"
       ],
-      bgColor: "from-sky-50 to-cyan-50",
-      accentColor: "sky"
+      bgColor: "from-cappuccino/20 via-italian-gold/10 to-cream",
+      accentColor: "italian-gold"
     },
     {
       id: "cakes",
@@ -63,8 +63,8 @@ const MenuSlider = () => {
         "Gelato Artigianale",
         "Biscotti della Nonna"
       ],
-      bgColor: "from-rose-50 to-pink-50",
-      accentColor: "rose"
+      bgColor: "from-warm-gold/15 via-cappuccino/25 to-cream",
+      accentColor: "coffee"
     }
   ];
 
@@ -137,12 +137,12 @@ const MenuSlider = () => {
             >
               {menuSlides.map((slide, index) => (
                 <div key={slide.id} className="w-full flex-shrink-0">
-                  <div className={`bg-gradient-to-br ${slide.bgColor} p-8 md:p-12 min-h-[600px]`}>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
+                  <div className={`bg-gradient-to-br ${slide.bgColor} p-8 md:p-12 min-h-[650px] flex items-center`}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full w-full">
                       {/* Content */}
-                      <div className="space-y-8">
+                      <div className="space-y-8 flex flex-col justify-center">
                         <div className="flex items-center gap-4">
-                          <div className="p-4 rounded-full bg-italian-gold/20 backdrop-blur-sm">
+                          <div className="p-4 rounded-full bg-italian-gold/20 backdrop-blur-sm border border-italian-gold/30">
                             <CurrentIcon className="h-10 w-10 text-italian-gold" />
                           </div>
                           <h3 className="font-playfair text-3xl md:text-4xl font-bold text-coffee">
@@ -158,7 +158,7 @@ const MenuSlider = () => {
                           {slide.items.map((item, itemIndex) => (
                             <div 
                               key={itemIndex}
-                              className="flex items-center gap-3 p-4 rounded-lg bg-white/40 backdrop-blur-sm hover:bg-white/60 transition-all duration-300 hover:shadow-md transform hover:-translate-y-1"
+                              className="flex items-center gap-3 p-4 rounded-lg bg-cream/60 backdrop-blur-sm hover:bg-cream/80 transition-all duration-300 hover:shadow-md transform hover:-translate-y-1 border border-cappuccino/20"
                               style={{ animationDelay: `${itemIndex * 100}ms` }}
                             >
                               <div className="w-2 h-2 rounded-full bg-italian-gold animate-pulse" />
@@ -169,7 +169,7 @@ const MenuSlider = () => {
                         
                         <Button 
                           size="lg"
-                          className="bg-gradient-gold hover:shadow-gold hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-inter font-semibold px-8 py-3 rounded-full"
+                          className="bg-gradient-gold hover:shadow-gold hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-inter font-semibold px-8 py-3 rounded-full border border-italian-gold/30"
                         >
                           Scopri di Più
                         </Button>
@@ -177,9 +177,9 @@ const MenuSlider = () => {
                       
                       {/* Visual Card */}
                       <div className="lg:flex justify-center items-center hidden">
-                        <Card className="shadow-gold hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 bg-white/60 backdrop-blur-sm border-0 w-80">
+                        <Card className="shadow-gold hover:shadow-elegant transition-all duration-500 transform hover:-translate-y-4 bg-cream/80 backdrop-blur-sm border border-cappuccino/20 w-80">
                           <CardHeader className="text-center pb-4">
-                            <div className="mx-auto w-20 h-20 rounded-full bg-italian-gold/30 flex items-center justify-center mb-6">
+                            <div className="mx-auto w-20 h-20 rounded-full bg-italian-gold/20 flex items-center justify-center mb-6 border border-italian-gold/30">
                               <CurrentIcon className="h-10 w-10 text-italian-gold" />
                             </div>
                             <CardTitle className="font-playfair text-2xl text-coffee">{slide.title}</CardTitle>
@@ -188,11 +188,14 @@ const MenuSlider = () => {
                             </CardDescription>
                           </CardHeader>
                           <CardContent className="text-center">
-                            <div className="h-40 bg-gradient-to-br from-italian-gold/10 to-warm-gold/20 rounded-lg flex items-center justify-center mb-6 relative overflow-hidden">
-                              <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/20 via-transparent to-warm-gold/20 animate-slow-zoom"></div>
+                            <div className="h-40 bg-gradient-to-br from-italian-gold/10 via-warm-gold/15 to-cappuccino/20 rounded-lg flex items-center justify-center mb-6 relative overflow-hidden border border-italian-gold/20">
+                              <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/10 via-transparent to-warm-gold/10 animate-slow-zoom"></div>
                               <span className="font-playfair text-coffee/60 italic text-lg relative z-10">
                                 Deliziose specialità italiane
                               </span>
+                              {/* Decorative elements */}
+                              <div className="absolute top-2 right-2 w-2 h-2 bg-italian-gold/40 rounded-full"></div>
+                              <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-warm-gold/40 rounded-full"></div>
                             </div>
                             <p className="font-inter text-sm text-coffee/70 italic">
                               Preparato fresco ogni giorno con ingredienti italiani autentici
