@@ -1,7 +1,25 @@
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-cafe.jpg";
 
 const Hero = () => {
+  const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  
+  const slidingTexts = [
+    "Authentic Italian Experience",
+    "Where Coffee Meets Passion",
+    "Traditional Flavors, Modern Style",
+    "Your Italian Escape Awaits"
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTextIndex((prev) => (prev + 1) % slidingTexts.length);
+    }, 3000); // Change text every 3 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -23,10 +41,17 @@ const Hero = () => {
           />
         </div>
         
-        {/* Tagline */}
-        <h1 className="font-playfair text-3xl md:text-5xl lg:text-6xl font-bold text-white mb-6 animate-fade-in">
-          Authentic Italian Experience
-        </h1>
+        {/* Sliding Tagline */}
+        <div className="h-16 md:h-20 lg:h-24 flex items-center justify-center mb-6">
+          <h1 className="font-playfair text-3xl md:text-5xl lg:text-6xl font-bold text-white animate-fade-in">
+            <span 
+              key={currentTextIndex}
+              className="inline-block animate-slide-in"
+            >
+              {slidingTexts[currentTextIndex]}
+            </span>
+          </h1>
+        </div>
         
         <p className="font-inter text-lg md:text-xl text-white/90 mb-8 max-w-2xl mx-auto leading-relaxed animate-fade-in">
           Discover the heart of Italy through our carefully crafted breakfast, brunch, and summer specialties. 

@@ -130,6 +130,11 @@
     animation: fadeIn 0.8s ease-out forwards;
   }
 
+  /* Slide-in animation for text slider */
+  .animate-slide-in {
+    animation: slideIn 0.8s ease-out forwards;
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -138,6 +143,17 @@
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+
+  @keyframes slideIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
     }
   }
 }

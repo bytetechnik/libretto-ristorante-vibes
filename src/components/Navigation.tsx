@@ -7,9 +7,8 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Home", href: "#home" },
-    { label: "Breakfast & Brunch", href: "#breakfast" },
-    { label: "Summer Menu", href: "#summer" },
-    { label: "Cakes & Sweets", href: "#cakes" },
+    { label: "Cafe Libretto", href: "#about" },
+    { label: "Menu", href: "#menu" },
     { label: "Contact", href: "#contact" },
   ];
 
