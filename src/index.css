@@ -130,15 +130,59 @@
     animation: fadeIn 0.8s ease-out forwards;
   }
 
+  /* Enhanced fade-in-up animation */
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out forwards;
+  }
+
   /* Slide-in animation for text slider */
   .animate-slide-in {
     animation: slideIn 0.8s ease-out forwards;
+  }
+
+  /* Fancy slide-in animation */
+  .animate-slide-in-fancy {
+    animation: slideInFancy 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  /* Slow zoom animation */
+  .animate-slow-zoom {
+    animation: slowZoom 20s ease-in-out infinite alternate;
+  }
+
+  /* Floating animations */
+  .animate-float-slow {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-medium {
+    animation: float 4s ease-in-out infinite;
+  }
+
+  .animate-float-fast {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  /* Slow bounce animation */
+  .animate-bounce-slow {
+    animation: bounceSlow 3s ease-in-out infinite;
   }
 
   @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
     }
     to {
       opacity: 1;
@@ -154,6 +198,51 @@
     100% {
       opacity: 1;
       transform: translateX(0);
+    }
+  }
+
+  @keyframes slideInFancy {
+    0% {
+      opacity: 0;
+      transform: translateX(-50px) scale(0.8);
+      filter: blur(10px);
+    }
+    50% {
+      opacity: 0.8;
+      transform: translateX(10px) scale(1.05);
+      filter: blur(2px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+      filter: blur(0);
+    }
+  }
+
+  @keyframes slowZoom {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-20px) rotate(180deg);
+    }
+  }
+
+  @keyframes bounceSlow {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
     }
   }
 }
