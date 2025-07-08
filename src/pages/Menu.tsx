@@ -190,10 +190,10 @@ const Menu = () => {
         <div className="max-w-5xl mx-auto relative" style={{ perspective: window.innerWidth < 768 ? '800px' : '1200px' }}>
           <div className="relative mx-auto" style={{ 
             width: 'min(90vw, 800px)', 
-            height: 'min(67.5vw, 600px)',
+            height: 'min(80vh, 600px)', // Increased height for mobile
             maxWidth: '800px',
             maxHeight: '600px',
-            minHeight: '400px',
+            minHeight: '500px', // Increased minimum height for mobile
             transformStyle: 'preserve-3d'
           }}>
             
@@ -259,7 +259,7 @@ const Menu = () => {
                 </div>
               ) : (
                 // Menu Pages
-                <div className="h-full p-4 md:p-12 flex flex-col overflow-y-auto">
+                <div className="h-full p-4 md:p-12 flex flex-col overflow-y-auto min-h-0">
                   {/* Decorative Header */}
                   <div className="text-center mb-4 md:mb-8 border-b-2 border-amber-200 pb-3 md:pb-6 flex-shrink-0">
                     <div className="flex justify-center items-center mb-2 md:mb-4">
@@ -276,10 +276,10 @@ const Menu = () => {
                   </div>
 
                   {/* Menu Items */}
-                  <div className="flex-1 space-y-3 md:space-y-6 overflow-y-auto">
+                  <div className="flex-1 space-y-4 md:space-y-6 overflow-y-auto min-h-0">
                     {menuData[currentPage].items.map((item, index) => (
                       <div key={index} 
-                           className="group hover:bg-amber-50/50 rounded-lg p-2 md:p-3 transition-all duration-300 animate-fade-in"
+                           className="group hover:bg-amber-50/50 rounded-lg p-3 md:p-3 transition-all duration-300 animate-fade-in"
                            style={{ animationDelay: `${index * 150}ms` }}>
                         <div className="flex justify-between items-start">
                           <div className="flex-1 min-w-0">
