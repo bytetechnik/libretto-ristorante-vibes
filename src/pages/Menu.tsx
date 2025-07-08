@@ -56,6 +56,14 @@ const Menu = () => {
   const [currentPage, setCurrentPage] = useState(-1); // Start with cover (-1)
   const [isFlipping, setIsFlipping] = useState(false);
   const [flipDirection, setFlipDirection] = useState<'forward' | 'backward'>('forward');
+  
+  // Touch gesture state
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  // Minimum swipe distance to trigger page change
+  const minSwipeDistance = 50;
 
   const nextPage = () => {
     if (currentPage < menuData.length - 1) {
@@ -94,6 +102,59 @@ const Menu = () => {
         }, 100);
       }, 400);
     }
+  };
+
+  // Touch event handlers
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (isFlipping) return;
+    
+    const touch = e.touches[0];
+    setTouchStart({ x: touch.clientX, y: touch.clientY });
+    setTouchEnd(null);
+    setIsDragging(false);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!touchStart || isFlipping) return;
+    
+    const touch = e.touches[0];
+    setTouchEnd({ x: touch.clientX, y: touch.clientY });
+    
+    const deltaX = Math.abs(touch.clientX - touchStart.x);
+    const deltaY = Math.abs(touch.clientY - touchStart.y);
+    
+    // Only start dragging if horizontal movement is greater than vertical
+    if (deltaX > deltaY && deltaX > 10) {
+      setIsDragging(true);
+      e.preventDefault(); // Prevent scroll when swiping horizontally
+    }
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd || isFlipping) {
+      setTouchStart(null);
+      setTouchEnd(null);
+      setIsDragging(false);
+      return;
+    }
+
+    const deltaX = touchStart.x - touchEnd.x;
+    const deltaY = Math.abs(touchStart.y - touchEnd.y);
+    
+    // Check if it's a horizontal swipe (more horizontal than vertical movement)
+    if (Math.abs(deltaX) > deltaY && Math.abs(deltaX) > minSwipeDistance) {
+      if (deltaX > 0) {
+        // Swipe left - next page
+        nextPage();
+      } else {
+        // Swipe right - previous page
+        prevPage();
+      }
+    }
+    
+    setTouchStart(null);
+    setTouchEnd(null);
+    setIsDragging(false);
   };
 
   return (
@@ -143,17 +204,23 @@ const Menu = () => {
             </div>
 
             {/* Current Page */}
-            <div className={`absolute inset-0 bg-cream rounded-r-xl shadow-xl border-l-4 md:border-l-8 border-amber-800 overflow-hidden transition-all duration-800 ease-in-out ${
-              isFlipping 
-                ? flipDirection === 'forward' 
-                  ? 'animate-page-flip' 
-                  : 'animate-page-flip-back'
-                : ''
-            }`} style={{ 
-              zIndex: 10,
-              transformOrigin: 'left center',
-              transformStyle: 'preserve-3d'
-            }}>
+            <div 
+              className={`absolute inset-0 bg-cream rounded-r-xl shadow-xl border-l-4 md:border-l-8 border-amber-800 overflow-hidden transition-all duration-800 ease-in-out ${
+                isFlipping 
+                  ? flipDirection === 'forward' 
+                    ? 'animate-page-flip' 
+                    : 'animate-page-flip-back'
+                  : ''
+              } ${isDragging ? 'cursor-grabbing' : 'cursor-grab'}`} 
+              style={{ 
+                zIndex: 10,
+                transformOrigin: 'left center',
+                transformStyle: 'preserve-3d'
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+            >
               
               {/* Book Binding */}
               <div className="absolute left-0 top-0 bottom-0 w-1 md:w-2 bg-gradient-to-b from-amber-800 via-amber-700 to-amber-800"></div>
@@ -294,6 +361,16 @@ const Menu = () => {
             >
               ‹
             </button>
+            <div className="text-center">
+              <p className="text-amber-700 font-crimson text-sm italic mb-1">
+                Glissez pour tourner les pages
+              </p>
+              <div className="flex items-center justify-center space-x-2 text-amber-500">
+                <span className="text-xs">←</span>
+                <span className="font-crimson text-xs">Swipe</span>
+                <span className="text-xs">→</span>
+              </div>
+            </div>
             <button
               onClick={nextPage}
               disabled={isFlipping || currentPage >= menuData.length - 1}
