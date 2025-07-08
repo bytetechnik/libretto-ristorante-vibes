@@ -1,11 +1,23 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, Phone, MapPin } from "lucide-react";
+import welcomeBgArt from "@/assets/welcome-bg-art.jpg";
 
 const Welcome = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-hero">
-      <div className="max-w-7xl mx-auto">
+    <section 
+      className="py-20 px-4 relative overflow-hidden"
+      style={{
+        backgroundImage: `url(${welcomeBgArt})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Background overlay */}
+      <div className="absolute inset-0 bg-gradient-hero/90"></div>
+      
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Welcome Text */}
           <div className="lg:col-span-2 space-y-6">
