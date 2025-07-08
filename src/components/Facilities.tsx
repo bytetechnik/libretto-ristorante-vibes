@@ -63,8 +63,25 @@ const Facilities = () => {
 
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-cream via-cappuccino/20 to-cream relative overflow-hidden">
-      {/* Decorative Background */}
+      {/* Artistic Background Patterns */}
+      <div className="absolute inset-0 opacity-25">
+        <div className="absolute inset-0 animate-pattern-wave" style={{
+          backgroundImage: 'var(--pattern-waves)',
+          backgroundSize: '200px 100px'
+        }}></div>
+        <div className="absolute inset-0 animate-pattern-drift" style={{
+          backgroundImage: 'var(--pattern-dots)',
+          backgroundSize: '80px 80px'
+        }}></div>
+      </div>
+
+      {/* Elegant Geometric Art */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-0 w-48 h-48 bg-gradient-to-br from-french-gold/12 to-transparent rounded-full animate-pattern-rotate"></div>
+        <div className="absolute bottom-0 right-0 w-56 h-56 bg-gradient-to-tl from-parisian-blue/10 to-artistic-lavender/8 transform rotate-12 animate-drift-slow"></div>
+        <div className="absolute top-1/3 right-1/4 w-24 h-24 border-2 border-french-gold/15 transform rotate-45 animate-pattern-rotate"></div>
+        
+        {/* Original Background Elements */}
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-italian-gold/5 rounded-full blur-3xl animate-float-slow"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-warm-gold/5 rounded-full blur-3xl animate-float-medium"></div>
         

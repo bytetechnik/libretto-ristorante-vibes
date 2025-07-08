@@ -2,8 +2,23 @@ import { MapPin, Phone, Clock, Instagram, Facebook, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-coffee text-cream">
-      <div className="max-w-7xl mx-auto px-4 py-16">
+    <footer className="bg-gradient-coffee text-cream relative overflow-hidden">
+      {/* Artistic Background Patterns */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="absolute inset-0 animate-pattern-drift" style={{
+          backgroundImage: 'var(--pattern-lines)',
+          backgroundSize: '150px 150px'
+        }}></div>
+      </div>
+      
+      {/* Elegant Footer Art */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-italian-gold/15 to-transparent rounded-full animate-drift-slow"></div>
+        <div className="absolute bottom-10 left-10 w-40 h-2 bg-gradient-to-r from-french-gold/20 to-transparent rotate-12 animate-pattern-wave"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 border border-parisian-blue/15 transform rotate-45 animate-rotate-slow"></div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto px-4 py-16 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">

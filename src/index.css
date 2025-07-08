@@ -58,6 +58,12 @@
 
     --radius: 0.75rem;
 
+    /* Artistic Background Patterns */
+    --pattern-dots: radial-gradient(circle at 20% 50%, hsl(var(--french-gold) / 0.1) 2px, transparent 2px),
+                    radial-gradient(circle at 80% 50%, hsl(var(--parisian-blue) / 0.08) 1px, transparent 1px);
+    --pattern-lines: repeating-linear-gradient(45deg, transparent, transparent 20px, hsl(var(--artistic-lavender) / 0.05) 20px, hsl(var(--artistic-lavender) / 0.05) 21px);
+    --pattern-waves: linear-gradient(90deg, transparent 0%, hsl(var(--french-gold) / 0.1) 25%, transparent 50%, hsl(var(--parisian-blue) / 0.08) 75%, transparent 100%);
+
     --sidebar-background: 0 0% 98%;
 
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -189,6 +195,19 @@
     animation: pulseGlow 4s ease-in-out infinite;
   }
 
+  /* Background art pattern animations */
+  .animate-pattern-drift {
+    animation: patternDrift 20s linear infinite;
+  }
+
+  .animate-pattern-wave {
+    animation: patternWave 15s ease-in-out infinite;
+  }
+
+  .animate-pattern-rotate {
+    animation: patternRotate 25s linear infinite;
+  }
+
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -289,6 +308,37 @@
     to {
       transform: rotate(360deg);
     }
+  }
+
+  @keyframes patternDrift {
+    0% {
+      background-position: 0% 0%;
+    }
+    100% {
+      background-position: 100% 100%;
+    }
+  }
+
+  @keyframes patternWave {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  @keyframes patternRotate {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.1);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
   }
 
   @keyframes pulseGlow {
