@@ -315,13 +315,16 @@ const Menu = () => {
               )}
             </div>
 
-            {/* Page Turn Click Areas - Desktop only */}
+            {/* Page Turn Click Areas - Desktop */}
             {currentPage > -1 && (
               <button
                 onClick={prevPage}
                 disabled={isFlipping}
                 className="hidden md:block absolute left-0 top-0 w-20 h-full z-20 opacity-0 hover:opacity-100 hover:bg-gradient-to-r hover:from-amber-900/20 hover:to-transparent transition-opacity duration-300 rounded-l-xl cursor-pointer"
                 title="Page précédente"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
                 <div className="h-full flex items-center justify-start pl-4">
                   <div className="w-8 h-8 bg-amber-800/80 rounded-full flex items-center justify-center text-cream text-sm">
@@ -337,6 +340,9 @@ const Menu = () => {
                 disabled={isFlipping}
                 className="hidden md:block absolute right-0 top-0 w-20 h-full z-20 opacity-0 hover:opacity-100 hover:bg-gradient-to-l hover:from-amber-900/20 hover:to-transparent transition-opacity duration-300 rounded-r-xl cursor-pointer"
                 title="Page suivante"
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
               >
                 <div className="h-full flex items-center justify-end pr-4">
                   <div className="w-8 h-8 bg-amber-800/80 rounded-full flex items-center justify-center text-cream text-sm">
@@ -347,49 +353,55 @@ const Menu = () => {
             )}
           </div>
 
-          {/* Mobile Navigation Buttons */}
-          <div className="md:hidden flex justify-center items-center space-x-8 mt-6">
-            <button
-              onClick={prevPage}
-              disabled={isFlipping || currentPage <= -1}
-              className={`w-12 h-12 rounded-full flex items-center justify-center text-cream text-lg transition-all duration-300 ${
-                currentPage <= -1 
-                  ? 'bg-amber-400/50 cursor-not-allowed' 
-                  : 'bg-amber-600 hover:bg-amber-700 active:scale-95 shadow-lg'
-              }`}
-              title="Page précédente"
-            >
-              ‹
-            </button>
+          {/* Navigation Buttons and Instructions */}
+          <div className="flex flex-col items-center space-y-4 mt-6">
+            {/* Swipe Instructions - All Devices */}
             <div className="text-center">
-              <p className="text-amber-700 font-crimson text-sm italic mb-1">
-                Glissez pour tourner les pages
+              <p className="text-amber-700 font-crimson text-sm md:text-base italic mb-1">
+                <span className="hidden sm:inline">Glissez pour tourner les pages ou utilisez les boutons</span>
+                <span className="sm:hidden">Glissez pour tourner les pages</span>
               </p>
-              <div className="flex items-center justify-center space-x-2 text-amber-500">
-                <span className="text-xs">←</span>
-                <span className="font-crimson text-xs">Swipe</span>
-                <span className="text-xs">→</span>
+              <div className="flex items-center justify-center space-x-3 text-amber-500">
+                <span className="text-sm">←</span>
+                <span className="font-crimson text-sm">Swipe / Touch</span>
+                <span className="text-sm">→</span>
               </div>
             </div>
-            <button
-              onClick={nextPage}
-              disabled={isFlipping || currentPage >= menuData.length - 1}
-              className={`w-12 h-12 rounded-full flex items-center justify-center text-cream text-lg transition-all duration-300 ${
-                currentPage >= menuData.length - 1 
-                  ? 'bg-amber-400/50 cursor-not-allowed' 
-                  : 'bg-amber-600 hover:bg-amber-700 active:scale-95 shadow-lg'
-              }`}
-              title="Page suivante"
-            >
-              ›
-            </button>
+            
+            {/* Mobile Navigation Buttons */}
+            <div className="md:hidden flex justify-center items-center space-x-8">
+              <button
+                onClick={prevPage}
+                disabled={isFlipping || currentPage <= -1}
+                className={`w-12 h-12 rounded-full flex items-center justify-center text-cream text-lg transition-all duration-300 ${
+                  currentPage <= -1 
+                    ? 'bg-amber-400/50 cursor-not-allowed' 
+                    : 'bg-amber-600 hover:bg-amber-700 active:scale-95 shadow-lg'
+                }`}
+                title="Page précédente"
+              >
+                ‹
+              </button>
+              <button
+                onClick={nextPage}
+                disabled={isFlipping || currentPage >= menuData.length - 1}
+                className={`w-12 h-12 rounded-full flex items-center justify-center text-cream text-lg transition-all duration-300 ${
+                  currentPage >= menuData.length - 1 
+                    ? 'bg-amber-400/50 cursor-not-allowed' 
+                    : 'bg-amber-600 hover:bg-amber-700 active:scale-95 shadow-lg'
+                }`}
+                title="Page suivante"
+              >
+                ›
+              </button>
+            </div>
           </div>
 
           {/* Page Navigation Dots */}
-          <div className="flex justify-center mt-6 md:mt-8 space-x-2 md:space-x-3">
+          <div className="flex justify-center mt-4 md:mt-6 space-x-2 md:space-x-3">
             <button
               onClick={() => goToPage(-1)}
-              className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
+              className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 touch-manipulation ${
                 currentPage === -1 
                   ? 'bg-amber-600 scale-125 shadow-lg' 
                   : 'bg-amber-300 hover:bg-amber-500 active:scale-90'
@@ -400,7 +412,7 @@ const Menu = () => {
               <button
                 key={index}
                 onClick={() => goToPage(index)}
-                className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 ${
+                className={`w-3 h-3 md:w-4 md:h-4 rounded-full transition-all duration-300 touch-manipulation ${
                   index === currentPage 
                     ? 'bg-amber-600 scale-125 shadow-lg' 
                     : 'bg-amber-300 hover:bg-amber-500 active:scale-90'
