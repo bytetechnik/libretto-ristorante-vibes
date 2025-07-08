@@ -4,8 +4,19 @@ import { Clock, Phone, MapPin } from "lucide-react";
 
 const Welcome = () => {
   return (
-    <section className="py-20 px-4 bg-gradient-hero">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-20 px-4 bg-gradient-hero relative overflow-hidden">
+      {/* Decorative Background */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 left-1/4 w-72 h-72 bg-italian-gold/5 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-warm-gold/5 rounded-full blur-3xl animate-float-medium"></div>
+        
+        {/* French Artistic Background Elements */}
+        <div className="absolute top-1/3 left-10 w-48 h-48 border border-french-gold/10 rounded-full animate-drift-slow"></div>
+        <div className="absolute bottom-1/4 right-16 w-32 h-32 bg-gradient-to-br from-parisian-blue/8 to-transparent animate-pulse-glow"></div>
+        <div className="absolute top-20 right-1/3 w-24 h-1 bg-gradient-to-r from-artistic-lavender/15 to-transparent rotate-45 animate-drift-medium"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 items-start">
           {/* Welcome Text */}
           <div className="lg:col-span-2 space-y-6">

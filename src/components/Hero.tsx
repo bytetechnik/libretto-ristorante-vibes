@@ -33,11 +33,21 @@ const Hero = () => {
 
       {/* Decorative Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        {/* Floating Coffee Beans */}
+        {/* Animated Background Art */}
+        <div className="absolute top-10 left-10 w-32 h-32 border border-french-gold/20 rounded-full animate-drift-slow"></div>
+        <div className="absolute top-1/3 right-20 w-24 h-24 border-2 border-parisian-blue/15 transform rotate-45 animate-rotate-slow"></div>
+        <div className="absolute bottom-20 left-1/4 w-40 h-40 bg-gradient-to-br from-french-gold/10 to-transparent rounded-full animate-pulse-glow"></div>
+        <div className="absolute top-1/2 right-1/3 w-16 h-16 border border-artistic-lavender/25 transform rotate-12 animate-drift-medium"></div>
+        
+        {/* Floating Artistic Elements */}
         <div className="absolute top-1/4 left-1/4 w-4 h-4 bg-italian-gold/30 rounded-full animate-float-slow"></div>
         <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-cream/40 rounded-full animate-float-medium"></div>
         <div className="absolute bottom-1/3 left-1/3 w-2 h-2 bg-italian-gold/50 rounded-full animate-float-fast"></div>
         <div className="absolute top-2/3 right-1/4 w-5 h-5 bg-cream/30 rounded-full animate-float-slow"></div>
+        
+        {/* French Artistic Touches */}
+        <div className="absolute top-16 right-1/4 w-20 h-1 bg-gradient-to-r from-french-gold/20 to-transparent rotate-12 animate-drift-fast"></div>
+        <div className="absolute bottom-32 left-1/3 w-1 h-16 bg-gradient-to-b from-parisian-blue/20 to-transparent rotate-45 animate-drift-slow"></div>
         
         {/* Decorative Lines */}
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-italian-gold/30 to-transparent"></div>

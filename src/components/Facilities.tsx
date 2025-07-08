@@ -67,6 +67,11 @@ const Facilities = () => {
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-0 left-1/4 w-72 h-72 bg-italian-gold/5 rounded-full blur-3xl animate-float-slow"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-warm-gold/5 rounded-full blur-3xl animate-float-medium"></div>
+        
+        {/* Artistic Background Elements */}
+        <div className="absolute top-16 left-16 w-40 h-40 border border-french-gold/12 transform rotate-12 animate-rotate-slow"></div>
+        <div className="absolute bottom-24 right-20 w-56 h-56 bg-gradient-radial from-parisian-blue/6 to-transparent animate-pulse-glow"></div>
+        <div className="absolute top-1/2 left-1/3 w-2 h-20 bg-gradient-to-b from-artistic-lavender/20 to-transparent rotate-30 animate-drift-fast"></div>
       </div>
 
       <div className="max-w-7xl mx-auto relative z-10">
