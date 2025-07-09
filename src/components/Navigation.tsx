@@ -18,7 +18,7 @@ const Navigation = () => {
 
   const navItems = [
     { label: "Home", href: "#home", isRoute: false },
-    { label: "Cafe Libretto", href: "#about", isRoute: false },
+    { label: "Cafe Libretto", href: "/about", isRoute: true },
     { label: "Menu", href: "/menu", isRoute: true },
     { label: "Contact", href: "#contact", isRoute: false },
   ];
