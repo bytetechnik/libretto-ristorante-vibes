@@ -4,7 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Phone, Mail, Car, Train, Bus } from "lucide-react";
-import contactHeroImage from "@/assets/contact-hero-artistic.jpg";
+import contactHeroImage from "@/assets/contact-hero-french.jpg";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);

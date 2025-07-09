@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
-import galleryHeroImage from "@/assets/gallery-hero-artistic.jpg";
+import galleryHeroImage from "@/assets/gallery-hero-french.jpg";
 
 // Import gallery images
 import gallery1 from "@/assets/gallery-1.jpg";
