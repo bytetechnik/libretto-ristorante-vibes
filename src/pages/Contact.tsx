@@ -18,18 +18,19 @@ const Contact = () => {
       
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-coffee/20 via-transparent to-italian-gold/10"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-coffee/75 via-coffee/60 to-coffee/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-coffee/60 via-transparent to-coffee/40"></div>
         
         <div className={`relative z-10 text-center max-w-4xl mx-auto px-6 transition-all duration-1500 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
         }`}>
-          <h1 className="font-playfair text-5xl md:text-7xl font-bold text-coffee mb-6 tracking-tight">
+          <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
             Visit
-            <span className="bg-gradient-gold bg-clip-text text-transparent ml-4">
+            <span className="bg-gradient-to-r from-italian-gold to-warm-gold bg-clip-text text-transparent ml-4">
               Us
             </span>
           </h1>
-          <p className="font-crimson text-xl md:text-2xl text-coffee/80 italic">
+          <p className="font-crimson text-xl md:text-2xl text-white/90 italic drop-shadow-lg">
             Your story awaits at Café Libretto
           </p>
         </div>

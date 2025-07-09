@@ -24,7 +24,8 @@ const About = () => {
             alt="Café Libretto interior"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-coffee/70 via-coffee/50 to-coffee/30"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-coffee/90 via-coffee/80 to-coffee/70"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-coffee/60 via-transparent to-coffee/40"></div>
         </div>
         
         {/* Floating elements */}
