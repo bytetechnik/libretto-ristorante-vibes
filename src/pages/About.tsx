@@ -16,35 +16,42 @@ const About = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Background with parallax effect */}
-        <div className="absolute inset-0 bg-gradient-to-br from-coffee/20 via-transparent to-italian-gold/10"></div>
+      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <img 
+            src="/lovable-uploads/ab01f7e2-ebef-4e5d-9af9-159fec66683e.png"
+            alt="Café Libretto interior"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-coffee/70 via-coffee/50 to-coffee/30"></div>
+        </div>
         
-        {/* Animated geometric shapes */}
+        {/* Floating elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-32 h-32 bg-italian-gold/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-40 right-20 w-24 h-24 bg-warm-gold/20 transform rotate-45 animate-bounce"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-cappuccino/30 rounded-full animate-ping"></div>
+          <div className="absolute top-20 left-10 w-24 h-24 bg-white/10 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-32 right-16 w-32 h-32 bg-italian-gold/20 transform rotate-45 animate-bounce"></div>
+          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-white/15 rounded-full animate-ping"></div>
         </div>
 
         <div className={`relative z-10 text-center max-w-4xl mx-auto px-6 transition-all duration-1500 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
         }`}>
-          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-coffee mb-6 tracking-tight">
-            Café
-            <span className="bg-gradient-gold bg-clip-text text-transparent ml-4">
+          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
+            About
+            <span className="bg-gradient-to-r from-italian-gold to-warm-gold bg-clip-text text-transparent ml-4">
               Libretto
             </span>
           </h1>
-          <p className="font-crimson text-xl md:text-2xl text-coffee/80 italic">
+          <p className="font-crimson text-xl md:text-2xl text-white/90 italic drop-shadow-lg">
             "Little Book" - Where Stories Come to Life
           </p>
           
           {/* Decorative line */}
           <div className="mt-8 flex items-center justify-center">
-            <div className="h-px bg-gradient-gold w-32"></div>
-            <div className="mx-4 w-3 h-3 bg-italian-gold rounded-full"></div>
-            <div className="h-px bg-gradient-gold w-32"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent w-32"></div>
+            <div className="mx-4 w-3 h-3 bg-white rounded-full animate-pulse"></div>
+            <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent w-32"></div>
           </div>
         </div>
       </section>

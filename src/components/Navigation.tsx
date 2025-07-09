@@ -17,10 +17,11 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "#home", isRoute: false },
-    { label: "Cafe Libretto", href: "/about", isRoute: true },
+    { label: "Home", href: "/", isRoute: true },
+    { label: "About", href: "/about", isRoute: true },
     { label: "Menu", href: "/menu", isRoute: true },
-    { label: "Contact", href: "#contact", isRoute: false },
+    { label: "Gallery", href: "/gallery", isRoute: true },
+    { label: "Contact", href: "/contact", isRoute: true },
   ];
 
   return (
