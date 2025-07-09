@@ -6,48 +6,137 @@ import frenchMenuCover from "@/assets/french-menu-cover.jpg";
 
 const menuData = [
   {
-    title: "Les Petits Déjeuners",
-    subtitle: "Traditional French Breakfast",
+    title: "Frühstück & Brunch",
+    subtitle: "Tradition trifft Genuss – Der perfekte Start in den Tag",
     items: [
-      { name: "Croissant au Beurre", description: "Fresh butter croissant, crispy and golden", price: "€3.50" },
-      { name: "Pain au Chocolat", description: "Traditional chocolate pastry", price: "€4.20" },
-      { name: "Café au Lait & Viennoiserie", description: "Coffee with milk and French pastry", price: "€6.80" },
-      { name: "Oeufs à la Coque", description: "Soft-boiled eggs with butter soldiers", price: "€5.50" },
-      { name: "Confiture Maison", description: "Homemade preserves with artisan bread", price: "€4.80" },
+      { name: "Stoltze", description: "1 Brötchen, Butter, Konfitüre, gekochtes Ei", price: "6.90€" },
+      { name: "Goethe", description: "1 Brötchen, 1 Vollkornbrötchen, Butter, Konfitüre, Farmerschinken, Salami, Pastrami, Gouda, 2 Eier im Glas mit Schnittlauch", price: "13.50€" },
+      { name: "Jules Verne", description: "Baguette, Sauerteigroissant, Butter, Konfitüre, Trauben, französischer Käse, gekochtes Ei", price: "12.90€" },
+      { name: "Shakespeare", description: "Toastbrot, Butter, zwei Spiegeleier, knuspriger Bacon, Nürnberger Rostbratwürste, Baked Beans, gegrillte Tomate & Champignons", price: "14.90€" },
+      { name: "Shakshuka", description: "Heiße Schmorpfanne aus der orientalischen Küche mit Tomaten, Zwiebeln, Kreuzkümmel, Paprika, zwei pochierten Eiern", price: "13.50€" },
+      { name: "Fitness", description: "2 Vollkornbrötchen, Blütenhonig, Frischkäse, Hummus, Gouda, Pastrami, Granola Müsli, gekochtes Ei", price: "15.90€" },
     ]
   },
   {
-    title: "Les Cafés & Boissons",
-    subtitle: "Coffee & Beverages",
+    title: "Étagère-Frühstück",
+    subtitle: "Liebevoll zusammengestellte Etageren für 1-2 Personen",
     items: [
-      { name: "Café Noir", description: "Strong black coffee, French roast", price: "€2.50" },
-      { name: "Café Crème", description: "Coffee with steamed cream", price: "€3.80" },
-      { name: "Chocolat Chaud", description: "Rich hot chocolate with whipped cream", price: "€4.50" },
-      { name: "Thé à la Française", description: "French tea selection", price: "€3.20" },
-      { name: "Café Glacé", description: "Iced coffee with vanilla", price: "€4.20" },
-      { name: "Tisane Maison", description: "House herbal tea blend", price: "€3.50" },
+      { name: "Il Dolce Far Niente", description: "Frischkäse, Pesto, Tomate, Burrata, Manchego, Oliven, Parmaschinken, Salami, Pastrami, Grissini, gekochtes Ei", price: "17.50€ / 32.50€" },
+      { name: "Royale", description: "Frischkäse, Graved Lachs, Tomaten- & Gurkenscheiben, rote Zwiebeln, Kapern, Olivenöl & Maldonsalz, gegrilltes Brioche-Brötchen", price: "18.50€ / 33.50€" },
+      { name: "Signature Libretto", description: "Frischkäse, Hummus, Butter, Konfitüre, Graved Lachs, Farmerschinken, Pastrami, Gouda, Salami, Brotkorb, Rühreier, Granola", price: "19.50€ / 37.50€" },
+      { name: "Hausgemachtes Granola", description: "Joghurt, frisches Obst, Blütenhonig, Chiasamen, Kokosflocken, Granola (Knuspermüsli)", price: "11.00€" },
+      { name: "Lauwarmes Porridge (Vegan)", description: "Haferflocken, Hafermilch, frische Beeren, Kokosflocken, Kakaonibs, Agavensirup", price: "10.00€" },
+      { name: "Bircher-Müsli", description: "Nach Originalrezept mit frischen Beeren, Apfel, Nüsse, Kokosflocken, Chiasamen", price: "10.00€" },
     ]
   },
   {
-    title: "Les Plats du Jour",
-    subtitle: "Daily Specialties",
+    title: "Eierspeisen & Extras",
+    subtitle: "Alle Eierspeisen werden mit Toast oder Brötchen & Butter serviert",
     items: [
-      { name: "Croque Monsieur", description: "Grilled ham and cheese sandwich", price: "€9.50" },
-      { name: "Salade Niçoise", description: "Traditional French riviera salad", price: "€12.80" },
-      { name: "Quiche Lorraine", description: "Classic bacon and cheese quiche", price: "€8.90" },
-      { name: "Soupe à l'Oignon", description: "French onion soup with gruyère", price: "€7.20" },
-      { name: "Ratatouille Provençale", description: "Traditional vegetable stew", price: "€11.50" },
+      { name: "2 Eier im Glas", description: "Mit Schnittlauch", price: "6.50€" },
+      { name: "Rührei Natur", description: "Aus drei Eiern mit Schnittlauch", price: "7.50€" },
+      { name: "Rührei mit Bacon", description: "Aus drei Eiern mit Farmerschinken & Schnittlauch", price: "9.00€" },
+      { name: "Spiegelei Natur", description: "Aus drei Eiern mit Schnittlauch", price: "7.50€" },
+      { name: "Omelette Bombay", description: "Frisches Gemüse, Ingwer, Koriander, Kurkuma, Zwiebeln, Minzjoghurt", price: "15.00€" },
+      { name: "Omelette Bauernart", description: "Kartoffeln, Speck, Farmerschinken, Champignons, Zwiebeln, Bergkäse, Schnittlauch", price: "14.00€" },
+      { name: "Omelette Mediterran", description: "Schafskäse, Tomaten, Oliven, Zwiebeln, Peperoni, Petersilie", price: "13.00€" },
+      { name: "Avocado Stulle", description: "Weizensauerteigbrot, Guacamole, Tomate, Rührei, Kresse, Maldonsalz", price: "14.90€" },
     ]
   },
   {
-    title: "Les Desserts",
-    subtitle: "Sweet Delights",
+    title: "Lunch & Salate",
+    subtitle: "Alle Salate werden mit warmem Focaccia Brot serviert",
     items: [
-      { name: "Tarte Tatin", description: "Upside-down apple tart with vanilla", price: "€6.50" },
-      { name: "Crème Brûlée", description: "Vanilla custard with caramelized sugar", price: "€5.80" },
-      { name: "Profiteroles", description: "Choux pastry with chocolate sauce", price: "€7.20" },
-      { name: "Madeleine de Proust", description: "Traditional shell-shaped sponge cakes", price: "€4.50" },
-      { name: "Macaron Parisien", description: "Delicate almond meringue sandwich", price: "€2.80" },
+      { name: "Tomatencremesuppe", description: "Aus San Marzano Tomaten, fein abgeschmeckt mit Basilikumöl", price: "8.00€" },
+      { name: "Classic Caesar", description: "Blattsalat, Kirschtomaten, Radieschen, Hähnchenbrust im Pankomantel, Bacon-Chips, Croutons, Parmigiano", price: "16.90€" },
+      { name: "Ziegenkäse & Freunde", description: "Gratinierter Ziegenkäse auf Blattsalat mit Radieschen, Kirschtomaten, Gurken, karamelisierten Walnüssen", price: "16.90€" },
+      { name: "Gartensalat", description: "Bunter Blattsalat mit Schafskäse, Kalamata Oliven, Peperoni, Kirschtomaten, Gurken, Radieschen", price: "15.90€" },
+      { name: "Mediterraner Salat (Vegan)", description: "Blattsalat mit hausgemachten Falafeln, Hummus, Kirschtomaten, Gurken, eingelegten Zwiebeln", price: "15.90€" },
+      { name: "Bella Nonna", description: "Mediterraner Salat mit Kirschtomaten, Gurken, Radieschen, roten Zwiebeln, feinen Bohnen, Parmaschinken", price: "15.90€" },
+    ]
+  },
+  {
+    title: "Pasta & Klassiker",
+    subtitle: "Pasta e Basta - Italienische Leidenschaft auf dem Teller",
+    items: [
+      { name: "Spaghetti all'Amatriciana", description: "Würzige Tomatensosse mit Knoblauch, Peperoncini, Guanciale (ital. Speck) & Parmigiano", price: "14.90€" },
+      { name: "Spaghetti Gambas", description: "Gegrillte Black Tiger Garnelen, Zucchini, Tomaten, Knoblauch, Peperoncini & Weißwein", price: "18.90€" },
+      { name: "Paccheri Pistacchio e Burrata", description: "Cremiges Pistazienpesto, Parmigiano, frische Pistazien & Burrata", price: "17.90€" },
+      { name: "Rigatoni Mezzi con Crema", description: "Cremige Erbsensosse, Parmigiano & knuspriger Guanciale (ital. Speck)", price: "15.90€" },
+      { name: "Penne all'Arrabiata", description: "Pikante Tomatensauce mit Knoblauch, Chili & Petersilie", price: "12.00€" },
+      { name: "Vegetarisches Gemüsecurry", description: "Frisches Gemüse in Kokos-Curry-Sauce mit Koriander, Ingwer & geröstetem Sesam, dazu Basmatireis", price: "16.50€" },
+      { name: "Rote Linsensuppe (Vegan)", description: "Würzig & wärmend, mit Ingwer, Koriander, Kurkuma & Kokosmilch", price: "9.00€" },
+    ]
+  },
+  {
+    title: "Süßes & Desserts",
+    subtitle: "Süße Verführungen zum Abschluss",
+    items: [
+      { name: "Hausgemachte Waffel Klassisch", description: "Mit Puderzucker", price: "8.00€" },
+      { name: "Waffel mit Obst", description: "Mit saisonalem Obst, Sahne, Bourbon Vanilleeis", price: "13.00€" },
+      { name: "Waffel mit Beeren", description: "Mit Beeren, Eierlikör, Krokant & Sahne", price: "14.00€" },
+      { name: "Kaiserschmarren Klassisch", description: "Hausgemacht mit Apfel & Rosinen, mit Puderzucker", price: "12.00€" },
+      { name: "Kaiserschmarren mit Obst", description: "Mit saisonalem Obst & Bourbon Vanilleeis", price: "15.00€" },
+      { name: "Kaiserschmarren mit Apfelkompott", description: "Mit Apfelkompott & Preiselbeermarmelade", price: "14.00€" },
+      { name: "Hausgemachter Apfelstrudel", description: "Mit Bourbon Vanilleeis & Sahne", price: "9.50€" },
+      { name: "Affogato al Caffé", description: "Espresso mit Bourbon Vanilleeis", price: "5.50€" },
+    ]
+  },
+  {
+    title: "Kaffee & Heißgetränke",
+    subtitle: "Aromatische Kaffeespezialitäten und warme Getränke",
+    items: [
+      { name: "Café Creme", description: "Klein / Groß", price: "3.80€ / 4.90€" },
+      { name: "Espresso / Doppio", description: "Italienischer Espresso", price: "3.00€ / 4.50€" },
+      { name: "Cappuccino", description: "Klein / Groß", price: "3.90€ / 5.50€" },
+      { name: "Latte Macchiato", description: "Schichtkaffee mit Milchschaum", price: "5.00€" },
+      { name: "Flat White", description: "Australische Kaffeespezialität", price: "4.70€" },
+      { name: "Matcha Latte", description: "Grüntee-Pulver mit heißer Milch", price: "5.90€" },
+      { name: "Chai Latte", description: "Gewürztee mit aufgeschäumter Milch", price: "5.50€" },
+      { name: "Heiße Schokolade", description: "Im Kännchen erhältlich", price: "4.50€ / 6.50€" },
+      { name: "Irish Coffee", description: "Café Creme, Whiskey, brauner Zucker, Sahne", price: "9.00€" },
+      { name: "Pharisäer Kaffee", description: "Café Creme, brauner Rum, Zucker, Sahne", price: "8.50€" },
+    ]
+  },
+  {
+    title: "Erfrischungsgetränke",
+    subtitle: "Kühle Erfrischungen und frische Säfte",
+    items: [
+      { name: "Taunusquelle", description: "Naturelle / Medium", price: "7.80€ / 8.00€" },
+      { name: "Detox Wasser", description: "Sprudelwasser, Zitrone, Gurke, Ingwer, Minze in der Karaffe", price: "6.90€" },
+      { name: "Hausgemachte Limonade", description: "Ingwer-Zitrone-Minze / Gemischte Beeren", price: "6.90€" },
+      { name: "Frisch gepresster Orangensaft", description: "0.2l", price: "6.50€" },
+      { name: "Softdrinks", description: "Cola / Cola Zero / Sprite / Fanta", price: "5.20€" },
+      { name: "Säfte (Rapps)", description: "Apfel / Orange / Maracuja / Cranberry / Rhabarber / Johannisbeere", price: "5.50€" },
+      { name: "Thomas Henry", description: "Tonic Water, Bitter Lemon, Ginger Ale, Ginger Beer, Pink Grapefruit", price: "3.90€" },
+      { name: "Kalte Zitrone", description: "Sprudelwasser, frischer Zitronensaft & Minze", price: "5.90€" },
+    ]
+  },
+  {
+    title: "Weine & Spirituosen",
+    subtitle: "Erlesene Weine und alkoholische Getränke",
+    items: [
+      { name: "Bitburger Pils (Fass)", description: "Frisch gezapft vom Fass", price: "5.00€" },
+      { name: "Benediktiner Hefeweizen", description: "0.5l", price: "5.90€" },
+      { name: "Carpe Noctem Prosecco", description: "Brut / Rosé", price: "9.50€" },
+      { name: "Sauvignon Blanc", description: "Weingut Steitz - Exotische Frucht, Stachelbeere, vibrierend frisch", price: "8.90€" },
+      { name: "Riesling Gutswein", description: "Weingut Friedrich Fendel - Pfirsich, Apfel, Zitrus", price: "8.90€" },
+      { name: "Cuvée Rosé", description: "Weingut Göhring - Frisch, beerig & lebendig", price: "8.90€" },
+      { name: "Whispering Angel", description: "Château d'Esclans - Rote Früchte, florale Noten", price: "55.00€" },
+      { name: "Primitivo 'I Muri'", description: "Vigneti del Salento - Waldbeeren, Pflaume & Gewürze", price: "9.50€" },
+      { name: "Perrier-Jouët Grand Brut", description: "Birne, Aprikose, Zitrus, frisch & elegant", price: "17.50€" },
+    ]
+  },
+  {
+    title: "Bar Food & Snacks",
+    subtitle: "Kleine Köstlichkeiten zum Teilen",
+    items: [
+      { name: "Italienische Oliven & Kartoffelchips", description: "Perfekt zum Aperitivo", price: "6.00€" },
+      { name: "Hummus & Falafel", description: "Cremiger Hummus mit frisch gebackenen Falafel, nussiger Tahinisauce & Piment d'Espelette", price: "12.00€" },
+      { name: "Truffle Fries", description: "Gerüffelte Pommes Frites mit Trüffel-Mayonnaise & geriebenem Parmigiano", price: "9.00€" },
+      { name: "Sweet Potato Fries", description: "Süßkartoffel-Pommes mit würziger Sriracha-Mayonnaise", price: "8.00€" },
+      { name: "Bite & Cheers Etagere", description: "Italienische Aufschnittplatte, Hummus, Falafel, Frischkäse, Olivencreme, Artischockencreme, Oliven", price: "12.50€ p.P." },
+      { name: "Tagliere - Das Holzbrett", description: "Italienische Spezialitäten: Aufschnitt, Burrata, Frischkäse, Pesto, Artischockencreme, Oliven & warmes Focaccia", price: "11.50€ p.P." },
     ]
   }
 ];
