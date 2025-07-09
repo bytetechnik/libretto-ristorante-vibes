@@ -3,6 +3,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import aboutHeroImage from "@/assets/about-hero-artistic.jpg";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -12,47 +13,62 @@ const About = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-cream via-white to-cappuccino/20">
+    <div className="min-h-screen bg-gradient-to-br from-cream via-white to-cappuccino/10">
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-[70vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
         {/* Background image */}
         <div className="absolute inset-0">
           <img 
-            src="/lovable-uploads/ab01f7e2-ebef-4e5d-9af9-159fec66683e.png"
-            alt="Café Libretto interior"
+            src={aboutHeroImage}
+            alt="Artistic café interior with warm lighting"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-coffee/90 via-coffee/80 to-coffee/70"></div>
-          <div className="absolute inset-0 bg-gradient-to-t from-coffee/60 via-transparent to-coffee/40"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-coffee/85 via-coffee/70 to-espresso/80"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-coffee/90 via-transparent to-coffee/50"></div>
         </div>
         
-        {/* Floating elements */}
+        {/* Artistic floating elements */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-24 h-24 bg-white/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-32 right-16 w-32 h-32 bg-italian-gold/20 transform rotate-45 animate-bounce"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-white/15 rounded-full animate-ping"></div>
+          <div className="absolute top-16 left-12 w-20 h-20 bg-italian-gold/20 rounded-full animate-float-slow"></div>
+          <div className="absolute bottom-24 right-20 w-36 h-36 bg-warm-gold/15 transform rotate-45 animate-float-medium"></div>
+          <div className="absolute top-1/4 right-1/3 w-12 h-12 bg-white/20 rounded-full animate-float-fast"></div>
+          <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-italian-gold/10 transform rotate-12 animate-bounce-slow"></div>
+          
+          {/* Artistic geometric shapes */}
+          <div className="absolute top-1/2 left-8 w-8 h-32 bg-gradient-to-b from-italian-gold/30 to-transparent transform -rotate-12 animate-pulse"></div>
+          <div className="absolute bottom-1/4 right-12 w-32 h-8 bg-gradient-to-r from-warm-gold/30 to-transparent transform rotate-12 animate-pulse"></div>
         </div>
 
-        <div className={`relative z-10 text-center max-w-4xl mx-auto px-6 transition-all duration-1500 transform ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+        <div className={`relative z-10 text-center max-w-5xl mx-auto px-6 transition-all duration-2000 transform ${
+          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-32 opacity-0'
         }`}>
-          <h1 className="font-playfair text-6xl md:text-8xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
-            About
-            <span className="bg-gradient-to-r from-italian-gold to-warm-gold bg-clip-text text-transparent ml-4">
-              Libretto
-            </span>
-          </h1>
-          <p className="font-crimson text-xl md:text-2xl text-white/90 italic drop-shadow-lg">
+          <div className="relative">
+            <h1 className="font-playfair text-7xl md:text-9xl font-bold text-white mb-8 tracking-tight drop-shadow-2xl leading-tight">
+              About
+              <span className="block md:inline bg-gradient-to-r from-italian-gold via-warm-gold to-italian-gold bg-clip-text text-transparent ml-0 md:ml-6">
+                Libretto
+              </span>
+            </h1>
+            
+            {/* Decorative flourish */}
+            <div className="absolute -top-8 left-1/2 transform -translate-x-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-italian-gold to-transparent"></div>
+            <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-transparent via-warm-gold to-transparent"></div>
+          </div>
+          
+          <p className="font-crimson text-2xl md:text-3xl text-white/95 italic drop-shadow-lg mb-8 leading-relaxed">
             "Little Book" - Where Stories Come to Life
           </p>
           
-          {/* Decorative line */}
-          <div className="mt-8 flex items-center justify-center">
-            <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent w-32"></div>
-            <div className="mx-4 w-3 h-3 bg-white rounded-full animate-pulse"></div>
-            <div className="h-px bg-gradient-to-r from-transparent via-white to-transparent w-32"></div>
+          {/* Enhanced decorative line */}
+          <div className="mt-12 flex items-center justify-center">
+            <div className="h-px bg-gradient-to-r from-transparent via-white/80 to-transparent w-40"></div>
+            <div className="mx-6 relative">
+              <div className="w-4 h-4 bg-white rounded-full animate-pulse"></div>
+              <div className="absolute inset-0 w-8 h-8 bg-italian-gold/30 rounded-full animate-ping"></div>
+            </div>
+            <div className="h-px bg-gradient-to-r from-transparent via-white/80 to-transparent w-40"></div>
           </div>
         </div>
       </section>
@@ -121,22 +137,48 @@ const About = () => {
                   culinary delights.
                 </p>
                 
-                {/* Cafe Interior Images */}
-                <div className="my-12">
-                  <div className="relative group max-w-2xl mx-auto">
-                    <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/20 to-warm-gold/20 rounded-2xl transform -rotate-2 group-hover:-rotate-3 transition-transform duration-500"></div>
-                    <div className="relative bg-white rounded-2xl p-4 shadow-elegant">
-                      <img 
-                        src="/lovable-uploads/ab01f7e2-ebef-4e5d-9af9-159fec66683e.png"
-                        alt="Interior of Café Libretto showing dining area and display case"
-                        className="w-full h-64 object-cover rounded-xl"
-                      />
-                      <div className="mt-4 text-center">
-                        <h4 className="font-playfair text-lg font-semibold text-coffee">
-                          Café Libretto Interior
-                        </h4>
-                        <p className="font-inter text-sm text-coffee/70 italic">
-                          Where stories come to life
+                {/* Artistic Image Gallery */}
+                <div className="my-16">
+                  <div className="grid md:grid-cols-2 gap-8 items-center">
+                    {/* First Image - Café Interior */}
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/30 to-warm-gold/30 rounded-3xl transform -rotate-3 group-hover:-rotate-6 transition-all duration-700"></div>
+                      <div className="relative bg-white rounded-3xl p-6 shadow-elegant group-hover:shadow-gold transition-all duration-500">
+                        <div className="aspect-[4/3] overflow-hidden rounded-2xl">
+                          <img 
+                            src="/lovable-uploads/ab01f7e2-ebef-4e5d-9af9-159fec66683e.png"
+                            alt="Interior of Café Libretto showing dining area and display case"
+                            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                          />
+                        </div>
+                        <div className="mt-6 text-center">
+                          <h4 className="font-playfair text-xl font-bold text-coffee mb-2">
+                            Café Libretto Interior
+                          </h4>
+                          <p className="font-crimson text-sm text-coffee/70 italic leading-relaxed">
+                            Where stories come to life through coffee and conversation
+                          </p>
+                        </div>
+                      </div>
+                      {/* Decorative elements */}
+                      <div className="absolute -top-6 -right-6 w-12 h-12 bg-italian-gold/40 rounded-full animate-pulse"></div>
+                      <div className="absolute -bottom-4 -left-4 w-8 h-8 bg-warm-gold/50 rounded-full animate-bounce"></div>
+                    </div>
+
+                    {/* Artistic text section */}
+                    <div className="space-y-6">
+                      <div className="relative">
+                        <h3 className="font-playfair text-3xl font-bold text-coffee mb-4">
+                          An Atmosphere Like No Other
+                        </h3>
+                        <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-gold rounded-full"></div>
+                      </div>
+                      <p className="font-crimson text-lg text-coffee/80 leading-relaxed">
+                        Step into our world where every corner tells a story, where the aroma of freshly brewed coffee mingles with the whispers of history, creating an ambiance that transcends the ordinary café experience.
+                      </p>
+                      <div className="bg-gradient-to-r from-italian-gold/10 to-warm-gold/10 rounded-2xl p-6">
+                        <p className="font-inter text-coffee/70 italic text-center">
+                          "A place where time slows down and stories unfold over perfectly crafted cups."
                         </p>
                       </div>
                     </div>
@@ -198,25 +240,38 @@ const About = () => {
                     </p>
                   </div>
 
-                  {/* Fountain Image */}
+                  {/* Fountain Image - Artistic Layout */}
                   <div className="space-y-6">
                     <div className="relative group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/20 to-warm-gold/20 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
-                      <div className="relative bg-white rounded-2xl p-4 shadow-elegant">
-                        <img 
-                          src="/lovable-uploads/4ceae6e5-7085-4c94-9ba4-b2493c34111f.png"
-                          alt="The Fountain of Virtue - Historical statue depicting the allegory of Virtue"
-                          className="w-full h-80 object-cover rounded-xl"
-                        />
-                        <div className="mt-4 text-center">
-                          <h4 className="font-playfair text-lg font-semibold text-coffee">
+                      <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/25 to-warm-gold/25 rounded-3xl transform rotate-2 group-hover:rotate-4 transition-all duration-700"></div>
+                      <div className="relative bg-white rounded-3xl p-6 shadow-elegant group-hover:shadow-gold transition-all duration-500">
+                        <div className="aspect-[3/4] overflow-hidden rounded-2xl">
+                          <img 
+                            src="/lovable-uploads/4ceae6e5-7085-4c94-9ba4-b2493c34111f.png"
+                            alt="The Fountain of Virtue - Historical statue depicting the allegory of Virtue"
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                          />
+                        </div>
+                        <div className="mt-6 text-center">
+                          <h4 className="font-playfair text-xl font-bold text-coffee mb-2">
                             The Fountain of Virtue
                           </h4>
-                          <p className="font-inter text-sm text-coffee/70 italic">
-                            Rococo figure from 1768
+                          <p className="font-crimson text-sm text-coffee/70 italic leading-relaxed">
+                            Rococo figure from 1768 - A symbol of virtue triumphant
                           </p>
                         </div>
                       </div>
+                      {/* Decorative artistic elements */}
+                      <div className="absolute -top-4 -left-4 w-10 h-10 bg-warm-gold/50 rounded-full animate-pulse"></div>
+                      <div className="absolute -bottom-6 -right-6 w-14 h-14 bg-italian-gold/40 rounded-full animate-bounce"></div>
+                      <div className="absolute top-1/2 -right-2 w-6 h-6 bg-white/60 rounded-full animate-ping"></div>
+                    </div>
+                    
+                    {/* Additional artistic quote */}
+                    <div className="bg-gradient-to-r from-coffee/5 to-italian-gold/5 rounded-2xl p-6 border border-italian-gold/20">
+                      <p className="font-crimson text-center text-coffee/80 italic">
+                        "Standing as a testament to timeless virtue, this fountain has witnessed centuries of stories unfold."
+                      </p>
                     </div>
                   </div>
                 </div>
