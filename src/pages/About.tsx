@@ -112,6 +112,29 @@ const About = () => {
                   travel to another world with an extraordinary atmosphere and small and large 
                   culinary delights.
                 </p>
+                
+                {/* Cafe Interior Images */}
+                <div className="my-12">
+                  <div className="relative group max-w-2xl mx-auto">
+                    <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/20 to-warm-gold/20 rounded-2xl transform -rotate-2 group-hover:-rotate-3 transition-transform duration-500"></div>
+                    <div className="relative bg-white rounded-2xl p-4 shadow-elegant">
+                      <img 
+                        src="/lovable-uploads/ab01f7e2-ebef-4e5d-9af9-159fec66683e.png"
+                        alt="Interior of Café Libretto showing dining area and display case"
+                        className="w-full h-64 object-cover rounded-xl"
+                      />
+                      <div className="mt-4 text-center">
+                        <h4 className="font-playfair text-lg font-semibold text-coffee">
+                          Café Libretto Interior
+                        </h4>
+                        <p className="font-inter text-sm text-coffee/70 italic">
+                          Where stories come to life
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
                 <Separator className="my-8 bg-gradient-gold h-px" />
                 <p className="font-inter text-lg text-italian-gold font-medium">
                   We wish you a pleasant stay in our hotel and would be pleased to welcome you 
@@ -167,32 +190,52 @@ const About = () => {
                     </p>
                   </div>
 
-                  {/* Historical Timeline */}
+                  {/* Fountain Image */}
                   <div className="space-y-6">
-                    <h3 className="font-playfair text-2xl font-bold text-coffee mb-6">
-                      Historical Timeline
-                    </h3>
-                    
-                    <div className="space-y-4">
-                      {[
+                    <div className="relative group">
+                      <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/20 to-warm-gold/20 rounded-2xl transform rotate-3 group-hover:rotate-6 transition-transform duration-500"></div>
+                      <div className="relative bg-white rounded-2xl p-4 shadow-elegant">
+                        <img 
+                          src="/lovable-uploads/4ceae6e5-7085-4c94-9ba4-b2493c34111f.png"
+                          alt="The Fountain of Virtue - Historical statue depicting the allegory of Virtue"
+                          className="w-full h-80 object-cover rounded-xl"
+                        />
+                        <div className="mt-4 text-center">
+                          <h4 className="font-playfair text-lg font-semibold text-coffee">
+                            The Fountain of Virtue
+                          </h4>
+                          <p className="font-inter text-sm text-coffee/70 italic">
+                            Rococo figure from 1768
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Historical Timeline */}
+                <div className="mt-16">
+                  <h3 className="font-playfair text-2xl font-bold text-coffee mb-8 text-center">
+                    Historical Timeline
+                  </h3>
+                  
+                  <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">{[
                         { year: "1453", event: "Medieval draw well documented" },
                         { year: "1768", event: "Pump well built with Virtue figure" },
                         { year: "1822-1823", event: "First renovation" },
                         { year: "1887", event: "Second renovation" },
                         { year: "1944", event: "City destruction - only statue survived" },
-                        { year: "1967", event: "Restoration by Georg Krämer" },
-                        { year: "1967", event: "Inauguration by Mayor Willi Brundert" }
+                        { year: "1967", event: "Restoration by Georg Krämer" }
                       ].map((item, index) => (
-                        <div key={index} className="flex items-center space-x-4 group">
-                          <div className="w-16 h-16 bg-gradient-gold rounded-full flex items-center justify-center text-white font-bold text-sm group-hover:scale-110 transition-transform duration-300">
-                            {item.year}
-                          </div>
-                          <div className="flex-1 p-4 bg-white/60 rounded-lg group-hover:bg-white/80 transition-colors duration-300">
-                            <p className="font-inter text-coffee">{item.event}</p>
+                        <div key={index} className="group">
+                          <div className="bg-white/60 hover:bg-white/80 rounded-xl p-6 h-full transition-all duration-300 group-hover:transform group-hover:scale-105 shadow-sm hover:shadow-elegant">
+                            <div className="w-12 h-12 bg-gradient-gold rounded-full flex items-center justify-center text-white font-bold text-sm mb-4 mx-auto">
+                              {item.year.split('-')[0]}
+                            </div>
+                            <p className="font-inter text-coffee text-center">{item.event}</p>
                           </div>
                         </div>
                       ))}
-                    </div>
                   </div>
                 </div>
 
