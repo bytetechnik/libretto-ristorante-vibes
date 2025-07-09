@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
+import galleryHeroImage from "@/assets/gallery-hero-artistic.jpg";
 
 // Import gallery images
 import gallery1 from "@/assets/gallery-1.jpg";
@@ -46,14 +47,25 @@ const Gallery = () => {
       
       {/* Hero Section */}
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-coffee/80 via-coffee/60 to-coffee/40"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-coffee/70 via-transparent to-coffee/50"></div>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          style={{ backgroundImage: `url(${galleryHeroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-black/20 to-black/50"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-coffee/30 via-transparent to-italian-gold/10"></div>
+        </div>
         
-        {/* Floating elements */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-20 left-10 w-24 h-24 bg-italian-gold/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-32 right-16 w-32 h-32 bg-warm-gold/15 transform rotate-45 animate-bounce"></div>
-          <div className="absolute top-1/3 right-1/4 w-16 h-16 bg-cappuccino/20 rounded-full animate-ping"></div>
+        {/* Artistic floating elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-20 left-10 w-20 h-20 bg-italian-gold/15 rounded-full animate-float-slow blur-sm"></div>
+          <div className="absolute bottom-32 right-16 w-24 h-24 bg-warm-gold/20 transform rotate-45 animate-bounce blur-xs"></div>
+          <div className="absolute top-1/3 right-1/4 w-12 h-12 bg-cappuccino/25 rounded-full animate-ping"></div>
+          <div className="absolute bottom-1/4 left-1/3 w-16 h-16 bg-cream/15 transform rotate-12 animate-pulse"></div>
+          
+          {/* Geometric shapes */}
+          <div className="absolute top-1/4 left-1/2 w-32 h-1 bg-gradient-to-r from-transparent via-italian-gold/30 to-transparent animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/3 w-1 h-24 bg-gradient-to-b from-transparent via-warm-gold/40 to-transparent animate-bounce"></div>
         </div>
 
         <div className={`relative z-10 text-center max-w-4xl mx-auto px-6 transition-all duration-1500 transform ${

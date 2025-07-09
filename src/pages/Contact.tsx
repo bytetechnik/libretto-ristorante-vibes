@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Phone, Mail, Car, Train, Bus } from "lucide-react";
+import contactHeroImage from "@/assets/contact-hero-artistic.jpg";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -18,8 +19,26 @@ const Contact = () => {
       
       {/* Hero Section */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-coffee/75 via-coffee/60 to-coffee/50"></div>
-        <div className="absolute inset-0 bg-gradient-to-t from-coffee/60 via-transparent to-coffee/40"></div>
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat scale-105"
+          style={{ backgroundImage: `url(${contactHeroImage})` }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-br from-black/45 via-black/25 to-black/55"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-coffee/40 via-transparent to-italian-gold/15"></div>
+        </div>
+        
+        {/* Artistic geometric elements */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className="absolute top-16 right-20 w-6 h-6 bg-italian-gold/20 transform rotate-45 animate-pulse"></div>
+          <div className="absolute bottom-20 left-16 w-8 h-8 bg-warm-gold/25 rounded-full animate-bounce"></div>
+          <div className="absolute top-1/3 left-1/4 w-12 h-1 bg-cream/30 animate-pulse"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-1 h-16 bg-italian-gold/20 animate-bounce"></div>
+          
+          {/* Connection lines */}
+          <div className="absolute top-1/2 left-0 w-full h-px bg-gradient-to-r from-transparent via-warm-gold/20 to-transparent"></div>
+          <div className="absolute top-0 left-1/2 w-px h-full bg-gradient-to-b from-transparent via-italian-gold/15 to-transparent"></div>
+        </div>
         
         <div className={`relative z-10 text-center max-w-4xl mx-auto px-6 transition-all duration-1500 transform ${
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
