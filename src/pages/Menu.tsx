@@ -128,15 +128,81 @@ const menuData = [
     ]
   },
   {
-    title: "Bar Food & Snacks",
-    subtitle: "Kleine Köstlichkeiten zum Teilen",
+    title: "Rotweine & Rosé",
+    subtitle: "Erlesene Rotweine und Rosé Weine",
     items: [
-      { name: "Italienische Oliven & Kartoffelchips", description: "Perfekt zum Aperitivo", price: "6.00€" },
-      { name: "Hummus & Falafel", description: "Cremiger Hummus mit frisch gebackenen Falafel, nussiger Tahinisauce & Piment d'Espelette", price: "12.00€" },
+      { name: "Spätburgunder & St. Laurent Cuvée", description: "Weingut Steitz - Schwarzkirsche, Waldbeere, feine Würze – trocken", price: "31.00€ / 9.50€" },
+      { name: "Appassimento Rosso Veneto", description: "Cantina Valpolicella Negrar - Dunkle Kirschen, Vanille – kraftvoll & komplex", price: "31.00€ / 9.50€" },
+      { name: "Montepulciano d'Abruzzo 'Novantuno'", description: "Fosso Corno - Strukturiert mit Kirsch Frucht & Würze", price: "31.00€ / 9.50€" },
+      { name: "Primitivo 'I Muri'", description: "Vigneti del Salento - Waldbeeren, Pflaume & Gewürze – weich & rund", price: "31.00€ / 9.50€" },
+      { name: "Alìe Rosé", description: "Frescobaldi - Fruchtig, floral & fein-würzig – elegant & frisch", price: "55.00€ / 9.50€" },
+      { name: "Shiraz Rosé", description: "Weingut Dr. Hinkel - Waldbeeren, Vanille – vollmundig & charaktervoll – trocken", price: "45.00€ / 9.50€" },
+    ]
+  },
+  {
+    title: "Crostini Bar & Snacks",
+    subtitle: "Knusprige Brotscheiben und kleine Köstlichkeiten",
+    items: [
+      { name: "Crostini Auswahl", description: "4 Stück / 8 Stück / 12 Stück - Wähle aus 12 raffinierten Sorten", price: "10€ / 18€ / 24€" },
+      { name: "Südwind Crostini", description: "Hummus, Oliven, Piment d'Espelette", price: "einzeln" },
+      { name: "Skandi Lachs Crostini", description: "Graved Lachs, Frischkäse, Kapern", price: "einzeln" },
+      { name: "Amore Crostini", description: "Parmaschinken, Frischkäse, Balsamico", price: "einzeln" },
       { name: "Truffle Fries", description: "Gerüffelte Pommes Frites mit Trüffel-Mayonnaise & geriebenem Parmigiano", price: "9.00€" },
       { name: "Sweet Potato Fries", description: "Süßkartoffel-Pommes mit würziger Sriracha-Mayonnaise", price: "8.00€" },
-      { name: "Bite & Cheers Etagere", description: "Italienische Aufschnittplatte, Hummus, Falafel, Frischkäse, Olivencreme, Artischockencreme, Oliven", price: "12.50€ p.P." },
-      { name: "Tagliere - Das Holzbrett", description: "Italienische Spezialitäten: Aufschnitt, Burrata, Frischkäse, Pesto, Artischockencreme, Oliven & warmes Focaccia", price: "11.50€ p.P." },
+      { name: "Bite & Cheers Etagere", description: "Italienische Aufschnitt-Platte, Hummus, Falafel, Frischkäse, Olivencreme (ab 2 Personen)", price: "12.50€ p.P." },
+    ]
+  },
+  {
+    title: "Aperitivi & Spritz",
+    subtitle: "Italienische Aperitivo-Kultur",
+    items: [
+      { name: "Aperol / Campari Spritz", description: "Klassischer italienischer Aperitif mit Prosecco", price: "9.50€" },
+      { name: "Maracuja Spritz", description: "Aperol, Maracujanektar, Limette, Prosecco, Orange", price: "9.90€" },
+      { name: "Sarti Lemon", description: "Sarti Rosa, Thomas Henry Bitter Lemon, Grapefruit", price: "9.90€" },
+      { name: "Lillet Berry", description: "Lillet Blanc, Thomas Henry Wild Berry, Beeren", price: "9.50€" },
+      { name: "Lillet Jolie", description: "Lillet Rosé, Thomas Henry Pink Grapefruit Soda, Grapefruit", price: "9.90€" },
+      { name: "Royale Blanc", description: "Lillet Blanc, Pfirsichpüree, Prosecco, Orange", price: "11.00€" },
+      { name: "Negroni", description: "Malfy Gin, Campari, Belsazar Vermouth, Orange", price: "11.00€" },
+      { name: "Bicicletta", description: "Campari, Lugana, Soda, Orange", price: "9.90€" },
+    ]
+  },
+  {
+    title: "Cocktails & Sours",
+    subtitle: "Klassische Cocktails und frische Sours",
+    items: [
+      { name: "Pink Paloma", description: "Patron Silver Tequila, Limettensaft, Thomas Henry Pink Grapefruit Soda", price: "14.00€" },
+      { name: "Boulevardier", description: "Campari, Maker's Mark Bourbon, Vermouth, Orange", price: "12.00€" },
+      { name: "Aperol Sour", description: "Aperol, Orangensaft, Zitronensaft, Eiweiß, Simple Sirup", price: "11.00€" },
+      { name: "Whisky Sour", description: "Maker's Mark Bourbon, Zitronensaft, Eiweiß, Simple Sirup", price: "12.00€" },
+      { name: "Moscow Mule", description: "42 Below Vodka, Zitronensaft, Bitters, Thomas Henry Ginger Beer, Limette", price: "11.00€" },
+      { name: "Limoncello Mule", description: "Pallini Limoncello, Limettensaft, Thomas Henry Ginger Beer, Zitrone", price: "11.00€" },
+      { name: "Red Berry Mule", description: "42 Below Vodka, Zitronensaft, Cranberrysaft, Thomas Henry Ginger Beer", price: "11.00€" },
+    ]
+  },
+  {
+    title: "Malfy Gin & Spirituosen",
+    subtitle: "Italienische Gin-Spezialitäten und edle Spirituosen",
+    items: [
+      { name: "Malfy Gin Classico", description: "Malfy Gin Originale, Thomas Henry Tonic Water, Gurke, Limette", price: "12.00€" },
+      { name: "Malfy Gin Rosa", description: "Malfy Gin Rosa, Thomas Henry Wild Berry, Limettensaft, Grapefruit", price: "12.00€" },
+      { name: "Malfy Gin Limone", description: "Malfy Gin Limone, Thomas Henry Bitter Lemon, Zitrone, Minze", price: "12.00€" },
+      { name: "Glenfiddich 15 Years Solera", description: "Malt Whisky - 4cl", price: "10.00€" },
+      { name: "Maker's Mark Bourbon", description: "American Whiskey - 4cl", price: "7.00€" },
+      { name: "Patron Silver Tequila", description: "Premium Tequila - 4cl", price: "8.00€" },
+      { name: "42 Below Vodka", description: "Premium Vodka - 4cl", price: "6.00€" },
+      { name: "Limoncello", description: "Italienischer Zitronenlikör - 4cl", price: "5.50€" },
+      { name: "Fernet Branca Menta", description: "Italienischer Kräuterlikör - 4cl", price: "5.50€" },
+    ]
+  },
+  {
+    title: "Alkoholfreie Drinks",
+    subtitle: "Erfrischende alkoholfreie Alternativen",
+    items: [
+      { name: "Arancia 0.0 Tonic", description: "Ramazzotti Arancia 0.0%, Orange, Thomas Henry Tonic Water", price: "9.50€" },
+      { name: "No Gin & Tonic", description: "Tanqueray 0.0% Gin, Thomas Henry Tonic Water, Gurke, Limette", price: "10.00€" },
+      { name: "Shirley Temple", description: "Thomas Henry Ginger Ale, Granatapfelsirup, Zitronensaft", price: "8.00€" },
+      { name: "Virgin Mojito", description: "Frische Minze, Limettensaft, Rohrzucker, Soda", price: "7.50€" },
+      { name: "Virgin Mary", description: "Tomatensaft, Worcestershire Sauce, Tabasco, Sellerie", price: "8.00€" },
     ]
   }
 ];
