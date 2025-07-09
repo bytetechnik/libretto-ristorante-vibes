@@ -279,10 +279,10 @@ const Menu = () => {
         <div className="max-w-5xl mx-auto relative" style={{ perspective: window.innerWidth < 768 ? '800px' : '1200px' }}>
           <div className="relative mx-auto" style={{ 
             width: 'min(90vw, 800px)', 
-            height: 'min(80vh, 600px)', // Increased height for mobile
+            height: 'min(85vh, 700px)', // Increased height for better content display
             maxWidth: '800px',
-            maxHeight: '600px',
-            minHeight: '500px', // Increased minimum height for mobile
+            maxHeight: '700px',
+            minHeight: '550px', // Increased minimum height for mobile
             transformStyle: 'preserve-3d'
           }}>
             
