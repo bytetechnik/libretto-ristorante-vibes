@@ -2,10 +2,13 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/hooks/useLanguage";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,11 +20,11 @@ const Navigation = () => {
   }, []);
 
   const navItems = [
-    { label: "Home", href: "/", isRoute: true },
-    { label: "About", href: "/about", isRoute: true },
-    { label: "Menu", href: "/menu", isRoute: true },
-    { label: "Gallery", href: "/gallery", isRoute: true },
-    { label: "Contact", href: "/contact", isRoute: true },
+    { label: t('home'), href: "/", isRoute: true },
+    { label: t('about'), href: "/about", isRoute: true },
+    { label: t('menu'), href: "/menu", isRoute: true },
+    { label: t('gallery'), href: "/gallery", isRoute: true },
+    { label: t('contact'), href: "/contact", isRoute: true },
   ];
 
   return (
@@ -65,7 +68,7 @@ const Navigation = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-1 mr-4">
             {navItems.map((item, index) => {
               const commonProps = {
                 key: item.label,
@@ -131,8 +134,9 @@ const Navigation = () => {
              })}
           </div>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* Language Switcher & CTA Button */}
+          <div className="hidden md:flex items-center space-x-2">
+            <LanguageSwitcher isScrolled={isScrolled} />
             <Button 
               size="sm"
               className={`hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-inter font-semibold px-6 py-2 rounded-full border relative overflow-hidden group ${
@@ -142,7 +146,7 @@ const Navigation = () => {
               }`}
             >
               <Phone className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-              <span className="relative z-10">Reserve Table</span>
+              <span className="relative z-10">{t('reserveTable')}</span>
               <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 ${
                 isScrolled 
                   ? 'bg-gradient-to-r from-warm-gold to-italian-gold'
@@ -214,12 +218,13 @@ const Navigation = () => {
                 );
               })}
               <div className="px-4 py-3">
+                <LanguageSwitcher isScrolled={true} />
                 <Button 
                   size="sm"
                   className="w-full bg-gradient-gold hover:shadow-gold hover:shadow-lg transition-all duration-300 font-inter font-semibold py-3 rounded-full relative overflow-hidden group"
                 >
                   <Phone className="w-4 h-4 mr-2 group-hover:rotate-12 transition-transform duration-300" />
-                  <span className="relative z-10">Reserve Table</span>
+                  <span className="relative z-10">{t('reserveTable')}</span>
                   <div className="absolute inset-0 bg-gradient-to-r from-warm-gold to-italian-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </Button>
               </div>

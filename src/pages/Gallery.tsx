@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/hooks/useLanguage";
 import galleryHeroImage from "@/assets/gallery-hero-french.jpg";
 
 // Import gallery images
@@ -13,6 +14,7 @@ import gallery4 from "@/assets/gallery-4.jpg";
 const Gallery = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -21,23 +23,23 @@ const Gallery = () => {
   const galleryImages = [
     {
       src: gallery1,
-      title: "Café Interior",
-      description: "Warm and inviting atmosphere with modern design"
+      title: t('cafeInterior'),
+      description: t('cafeInteriorDesc')
     },
     {
       src: gallery2,
-      title: "Coffee Artistry",
-      description: "Expertly crafted beverages with vintage equipment"
+      title: t('coffeeArtistry'),
+      description: t('coffeeArtistryDesc')
     },
     {
       src: gallery3,
-      title: "Fresh Pastries",
-      description: "Daily selection of artisanal cakes and treats"
+      title: t('freshPastries'),
+      description: t('freshPastriesDesc')
     },
     {
       src: gallery4,
-      title: "Community Gathering",
-      description: "Where stories come to life over great coffee"
+      title: t('communityGathering'),
+      description: t('communityGatheringDesc')
     }
   ];
 
@@ -72,13 +74,10 @@ const Gallery = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
         }`}>
           <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
-            Our
-            <span className="bg-gradient-to-r from-italian-gold to-warm-gold bg-clip-text text-transparent ml-4">
-              Gallery
-            </span>
+            {t('ourGallery')}
           </h1>
           <p className="font-crimson text-xl md:text-2xl text-white/90 italic drop-shadow-lg">
-            Visual Stories from Café Libretto
+            {t('memoriesInEveryCorner')}
           </p>
           
           {/* Decorative line */}
@@ -128,14 +127,13 @@ const Gallery = () => {
           <div className="mt-20 text-center max-w-3xl mx-auto">
             <Card className="bg-gradient-to-r from-white/90 to-cream/90 backdrop-blur-sm border-cappuccino/20 shadow-elegant p-8 md:p-12">
               <h2 className="font-playfair text-3xl md:text-4xl font-bold text-coffee mb-6">
-                Capturing Moments
+                {t('capturingMoments')}
               </h2>
               <p className="font-crimson text-lg text-coffee/90 leading-relaxed mb-6">
-                Every corner of Café Libretto tells a story. From the gentle steam rising from freshly brewed espresso 
-                to the warm conversations shared over homemade pastries, these moments create the heart of our little book.
+                {t('capturingMomentsDesc')}
               </p>
               <p className="font-inter text-italian-gold font-medium">
-                Like pages in a libretto, each image captures a scene from our daily opera of hospitality and craftsmanship.
+                {t('librettoPages')}
               </p>
             </Card>
           </div>

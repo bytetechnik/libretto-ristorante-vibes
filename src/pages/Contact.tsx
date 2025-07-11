@@ -4,10 +4,12 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Phone, Mail, Car, Train, Bus } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 import contactHeroImage from "@/assets/contact-hero-french.jpg";
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -44,13 +46,10 @@ const Contact = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
         }`}>
           <h1 className="font-playfair text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight drop-shadow-2xl">
-            Visit
-            <span className="bg-gradient-to-r from-italian-gold to-warm-gold bg-clip-text text-transparent ml-4">
-              Us
-            </span>
+            {t('visitUs')}
           </h1>
           <p className="font-crimson text-xl md:text-2xl text-white/90 italic drop-shadow-lg">
-            Your story awaits at Café Libretto
+            {t('yourStoryAwaits')}
           </p>
         </div>
       </section>
@@ -65,7 +64,7 @@ const Contact = () => {
               <Card className="bg-white/80 backdrop-blur-sm border-cappuccino/20 shadow-elegant">
                 <CardContent className="p-8">
                   <h2 className="font-playfair text-3xl font-bold text-coffee mb-6">
-                    Contact Information
+                    {t('contactInformation')}
                   </h2>
                   
                   <div className="space-y-6">
@@ -74,7 +73,7 @@ const Contact = () => {
                         <MapPin className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-inter font-semibold text-coffee">Address</h3>
+                        <h3 className="font-inter font-semibold text-coffee">{t('address')}</h3>
                         <p className="font-crimson text-coffee/80">
                           Hasengasse 5-7<br />
                           60311 Frankfurt am Main<br />
@@ -88,7 +87,7 @@ const Contact = () => {
                         <Phone className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-inter font-semibold text-coffee">Phone</h3>
+                        <h3 className="font-inter font-semibold text-coffee">{t('phone')}</h3>
                         <p className="font-crimson text-coffee/80">+49 69 29 72 91 72</p>
                       </div>
                     </div>
@@ -98,7 +97,7 @@ const Contact = () => {
                         <Mail className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-inter font-semibold text-coffee">Email</h3>
+                        <h3 className="font-inter font-semibold text-coffee">{t('email')}</h3>
                         <p className="font-crimson text-coffee/80">info@cafelibretto.de</p>
                       </div>
                     </div>
@@ -108,11 +107,10 @@ const Contact = () => {
                         <Clock className="w-6 h-6 text-white" />
                       </div>
                       <div>
-                        <h3 className="font-inter font-semibold text-coffee">Opening Hours</h3>
+                        <h3 className="font-inter font-semibold text-coffee">{t('openingHours')}</h3>
                         <div className="font-crimson text-coffee/80 space-y-1">
-                          <p>Monday - Friday: 7:30 AM - 7:00 PM</p>
-                          <p>Saturday: 8:00 AM - 7:00 PM</p>
-                          <p>Sunday: 9:00 AM - 6:00 PM</p>
+                          <p>{t('mondayToSaturday')}: 9:00 - 20:00</p>
+                          <p>{t('closedOn')} {t('sundays')}</p>
                         </div>
                       </div>
                     </div>
@@ -124,7 +122,7 @@ const Contact = () => {
               <Card className="bg-white/80 backdrop-blur-sm border-cappuccino/20 shadow-elegant">
                 <CardContent className="p-8">
                   <h2 className="font-playfair text-3xl font-bold text-coffee mb-6">
-                    How to Reach Us
+                    {t('howToReachUs')}
                   </h2>
                   
                   <div className="space-y-6">
@@ -133,7 +131,7 @@ const Contact = () => {
                         <Train className="w-6 h-6 text-italian-gold" />
                       </div>
                       <div>
-                        <h3 className="font-inter font-semibold text-coffee mb-2">Public Transport</h3>
+                        <h3 className="font-inter font-semibold text-coffee mb-2">{t('publicTransport')}</h3>
                         <div className="font-crimson text-coffee/80 space-y-1">
                           <p><strong>U-Bahn:</strong> U4, U5 to "Dom/Römer" (2 min walk)</p>
                           <p><strong>S-Bahn:</strong> S1-S6, S8, S9 to "Konstablerwache" (5 min walk)</p>
@@ -147,11 +145,11 @@ const Contact = () => {
                         <Car className="w-6 h-6 text-warm-gold" />
                       </div>
                       <div>
-                        <h3 className="font-inter font-semibold text-coffee mb-2">By Car</h3>
+                        <h3 className="font-inter font-semibold text-coffee mb-2">{t('byCar')}</h3>
                         <div className="font-crimson text-coffee/80 space-y-1">
-                          <p>Located in Frankfurt's historic old town</p>
-                          <p><strong>Parking:</strong> Parkhaus Dom/Römer (50m away)</p>
-                          <p><strong>Address for GPS:</strong> Hasengasse 5, Frankfurt</p>
+                          <p>{t('locatedInFrankfurt')}</p>
+                          <p><strong>{t('parking')}</strong> Parkhaus Dom/Römer (50m away)</p>
+                          <p><strong>{t('addressForGps')}</strong> Hasengasse 5, Frankfurt</p>
                         </div>
                       </div>
                     </div>
@@ -161,7 +159,7 @@ const Contact = () => {
                         <Bus className="w-6 h-6 text-cappuccino" />
                       </div>
                       <div>
-                        <h3 className="font-inter font-semibold text-coffee mb-2">From Airport</h3>
+                        <h3 className="font-inter font-semibold text-coffee mb-2">{t('fromAirport')}</h3>
                         <div className="font-crimson text-coffee/80 space-y-1">
                           <p>S8, S9 from Frankfurt Airport to "Hauptwache"</p>
                           <p>Then U4, U5 to "Dom/Römer" (Total: 25 min)</p>
@@ -191,18 +189,16 @@ const Contact = () => {
                   </div>
                   <div className="p-6">
                     <h3 className="font-playfair text-xl font-bold text-coffee mb-2">
-                      Find Us in Frankfurt's Old Town
+                      {t('findUsInOldTown')}
                     </h3>
                     <p className="font-crimson text-coffee/80 mb-4">
-                      We're located in the heart of Frankfurt's historic district, 
-                      just steps away from the famous Römerberg square and the 
-                      Frankfurt Cathedral.
+                      {t('oldTownDescription')}
                     </p>
                     <Button 
                       className="bg-gradient-gold hover:shadow-gold transition-all duration-300"
                       onClick={() => window.open('https://maps.google.com/maps/dir//Caf%C3%A9+Libretto,+Hasengasse+5-7,+60311+Frankfurt+am+Main,+Germany', '_blank')}
                     >
-                      Get Directions
+                      {t('getDirections')}
                     </Button>
                   </div>
                 </CardContent>
@@ -212,16 +208,14 @@ const Contact = () => {
               <Card className="bg-gradient-to-r from-italian-gold/10 to-warm-gold/10 border-cappuccino/20 shadow-elegant">
                 <CardContent className="p-8 text-center">
                   <h3 className="font-playfair text-2xl font-bold text-coffee mb-4">
-                    Visit Our Neighborhood
+                    {t('visitNeighborhood')}
                   </h3>
                   <p className="font-crimson text-lg text-coffee/90 mb-4">
-                    While you're here, explore the historic Römerberg, visit the 
-                    Frankfurt Cathedral, or browse the nearby museums. Our café 
-                    is the perfect starting point for discovering Frankfurt's old town.
+                    {t('neighborhoodDescription')}
                   </p>
                   <div className="inline-flex items-center text-italian-gold font-inter font-medium">
                     <MapPin className="w-4 h-4 mr-2" />
-                    <span>In the heart of history</span>
+                    <span>{t('inHeartOfHistory')}</span>
                   </div>
                 </CardContent>
               </Card>
