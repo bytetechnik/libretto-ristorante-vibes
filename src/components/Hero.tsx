@@ -1,24 +1,36 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/hooks/useLanguage";
 import heroImage from "@/assets/hero-cafe.jpg";
 
 const Hero = () => {
   const [currentTextIndex, setCurrentTextIndex] = useState(0);
+  const { t, language } = useLanguage();
   
-  const slidingTexts = [
-    "Authentic Italian Experience",
-    "Where Coffee Meets Passion", 
-    "Traditional Flavors, Modern Style",
-    "Your Italian Escape Awaits"
-  ];
+  const slidingTexts = {
+    de: [
+      "Authentische italienische Erfahrung",
+      "Wo Kaffee auf Leidenschaft trifft",
+      "Traditionelle Aromen, moderner Stil",
+      "Ihr italienischer Ausflug wartet"
+    ],
+    en: [
+      "Authentic Italian Experience",
+      "Where Coffee Meets Passion",
+      "Traditional Flavors, Modern Style",
+      "Your Italian Escape Awaits"
+    ]
+  };
+
+  const currentSlidingTexts = slidingTexts[language];
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTextIndex((prev) => (prev + 1) % slidingTexts.length);
+      setCurrentTextIndex((prev) => (prev + 1) % currentSlidingTexts.length);
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [currentSlidingTexts.length]);
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -75,22 +87,32 @@ const Hero = () => {
                 key={currentTextIndex}
                 className="inline-block animate-slide-in-fancy bg-gradient-to-r from-white via-cream to-italian-gold bg-clip-text text-transparent drop-shadow-lg"
               >
-                {slidingTexts[currentTextIndex]}
+                {currentSlidingTexts[currentTextIndex]}
               </span>
             </h1>
             {/* Text Shadow Effect */}
             <div className="absolute inset-0 font-playfair text-4xl md:text-6xl lg:text-7xl font-bold text-italian-gold/20 blur-sm -z-10">
               <span className="inline-block">
-                {slidingTexts[currentTextIndex]}
+                {currentSlidingTexts[currentTextIndex]}
               </span>
             </div>
           </div>
         </div>
         
         <p className="font-inter text-xl md:text-2xl text-cream/95 mb-10 max-w-3xl mx-auto leading-relaxed animate-fade-in-up drop-shadow-lg">
-          Discover the heart of Italy through our carefully crafted breakfast, brunch, and summer specialties. 
-          <br className="hidden md:block" />
-          <span className="text-italian-gold font-medium">Every dish tells a story of tradition and passion.</span>
+          {language === 'de' ? (
+            <>
+              Entdecken Sie das Herz Italiens durch unsere sorgfältig zubereiteten Frühstücks-, Brunch- und Sommerspezialitäten.
+              <br className="hidden md:block" />
+              <span className="text-italian-gold font-medium">Jedes Gericht erzählt eine Geschichte von Tradition und Leidenschaft.</span>
+            </>
+          ) : (
+            <>
+              Discover the heart of Italy through our carefully crafted breakfast, brunch, and summer specialties.
+              <br className="hidden md:block" />
+              <span className="text-italian-gold font-medium">Every dish tells a story of tradition and passion.</span>
+            </>
+          )}
         </p>
         
         {/* Enhanced CTA Button */}
@@ -99,7 +121,9 @@ const Hero = () => {
             size="lg" 
             className="bg-gradient-gold hover:shadow-gold hover:shadow-xl transform hover:scale-110 transition-all duration-500 font-inter font-semibold px-12 py-6 text-xl rounded-full border-2 border-italian-gold/30 hover:border-italian-gold relative overflow-hidden group"
           >
-            <span className="relative z-10">Explore Our Menu</span>
+            <span className="relative z-10">
+              {language === 'de' ? 'Unser Menü erkunden' : 'Explore Our Menu'}
+            </span>
             <div className="absolute inset-0 bg-gradient-to-r from-italian-gold via-warm-gold to-italian-gold opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           </Button>
         </div>

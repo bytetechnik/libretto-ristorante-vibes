@@ -1,8 +1,11 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Clock, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Welcome = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 px-4 bg-gradient-hero">
       <div className="max-w-7xl mx-auto">
@@ -11,31 +14,28 @@ const Welcome = () => {
           <div className="lg:col-span-2 space-y-6">
             <div className="space-y-4">
               <h2 className="font-playfair text-4xl md:text-5xl font-bold text-coffee mb-4">
-                Welcome
+                {t('welcomeTitle')}
               </h2>
               <p className="font-playfair text-xl text-coffee/80 mb-6">
-                We're glad you're here.
+                {t('welcomeSubtitle')}
               </p>
             </div>
             
             <div className="space-y-4 font-inter text-lg text-muted-foreground leading-relaxed">
               <p>
-                Located in the heart of <span className="font-semibold text-coffee">Frankfurt</span>, you'll find our Café Libretto. 
-                A café with an Italian flair awaits you here, right next to the Frankfurt Central Library.
+                {t('welcomeDescription1')}
               </p>
               
               <p>
-                Enjoy our unique atmosphere and indulge in a variety of delicacies. We offer an extensive 
-                breakfast menu, a changing weekly specials menu, coffee, and cake.
+                {t('welcomeDescription2')}
               </p>
               
               <p>
-                In spring and summer, our beautiful, spacious outdoor area with its cozy lounge is a 
-                great place to unwind amidst the hustle and bustle of the city.
+                {t('welcomeDescription3')}
               </p>
               
               <p className="font-playfair text-xl text-coffee font-semibold mt-6">
-                We look forward to seeing you!
+                {t('welcomeDescription4')}
               </p>
             </div>
           </div>
@@ -50,13 +50,13 @@ const Welcome = () => {
                     <Clock className="h-6 w-6 text-italian-gold" />
                   </div>
                   <h3 className="font-playfair text-xl font-semibold text-coffee">
-                    Opening Hours
+                    {t('openingHours')}
                   </h3>
                 </div>
                 <div className="space-y-3 font-inter">
                   <div className="border-b border-cappuccino/30 pb-3">
                     <p className="font-semibold text-coffee text-sm uppercase tracking-wide">
-                      Monday to Saturday
+                      {t('mondayToSaturday')}
                     </p>
                     <p className="text-2xl font-bold text-italian-gold">
                       9:00 - 20:00
@@ -64,10 +64,10 @@ const Welcome = () => {
                   </div>
                   <div className="text-center">
                     <p className="text-muted-foreground text-sm">
-                      Closed on
+                      {t('closedOn')}
                     </p>
                     <p className="font-semibold text-coffee">
-                      Sundays
+                      {t('sundays')}
                     </p>
                   </div>
                 </div>
@@ -82,7 +82,7 @@ const Welcome = () => {
                     <Phone className="h-6 w-6 text-white" />
                   </div>
                   <h3 className="font-playfair text-xl font-semibold">
-                    Reservation / Order
+                    {t('reservationOrder')}
                   </h3>
                 </div>
                 <div className="space-y-3">
@@ -90,7 +90,7 @@ const Welcome = () => {
                     href="tel:069200190-10" 
                     className="block text-center"
                   >
-                    <p className="text-sm opacity-90 mb-1">Phone</p>
+                    <p className="text-sm opacity-90 mb-1">{t('phone')}</p>
                     <p className="text-2xl font-bold tracking-wide">
                       069 200 190 10
                     </p>
@@ -99,7 +99,7 @@ const Welcome = () => {
                     variant="outline" 
                     className="w-full bg-white/10 border-white/30 text-white hover:bg-white hover:text-coffee transition-all duration-300"
                   >
-                    Call Now
+                    {t('callNow')}
                   </Button>
                 </div>
               </CardContent>
@@ -109,7 +109,7 @@ const Welcome = () => {
             <div className="flex items-center gap-3 p-4 bg-cappuccino/30 rounded-lg">
               <MapPin className="h-5 w-5 text-italian-gold flex-shrink-0" />
               <p className="font-inter text-sm text-coffee">
-                Next to Frankfurt Central Library
+                {t('nextToLibrary')}
               </p>
             </div>
           </div>

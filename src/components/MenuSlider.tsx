@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Coffee, Sun, Cake, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 interface MenuSlide {
   id: string;
@@ -16,52 +17,53 @@ interface MenuSlide {
 const MenuSlider = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isAutoPlay, setIsAutoPlay] = useState(true);
+  const { t } = useLanguage();
 
   const menuSlides: MenuSlide[] = [
     {
       id: "breakfast",
-      title: "Colazione & Brunch",
-      description: "Inizia la giornata nel modo italiano con le nostre autentiche selezioni per la colazione. Dal caffè espresso perfetto ai cornetti freschi, ogni mattina diventa una celebrazione della tradizione culinaria italiana.",
+      title: t('breakfastTitle'),
+      description: t('breakfastDescription'),
       icon: "coffee",
       items: [
         "Espresso & Cappuccino",
-        "Cornetti Freschi",
-        "Frittata Italiana",
+        "Fresh Croissants",
+        "Italian Frittata",
         "Bruschetta Varieties",
-        "Yogurt con Miele",
-        "Frutta di Stagione"
+        "Yogurt with Honey",
+        "Seasonal Fruits"
       ],
       bgColor: "from-cream via-cappuccino/30 to-cream",
       accentColor: "warm-gold"
     },
     {
       id: "summer",
-      title: "Menu Estivo",
-      description: "Abbraccia il calore dell'estate con le nostre specialità stagionali rinfrescanti. Leggere, fresche e piene di sapori mediterranei che ti trasportano nella campagna italiana.",
+      title: t('summerTitle'),
+      description: t('summerDescription'),
       icon: "sun",
       items: [
         "Affogato al Caffè",
-        "Granita Siciliana",
-        "Prosciutto & Melone",
-        "Insalata Caprese",
-        "Gazpacho Italiano",
-        "Spritz al Limoncello"
+        "Sicilian Granita",
+        "Prosciutto & Melon",
+        "Caprese Salad",
+        "Italian Gazpacho",
+        "Limoncello Spritz"
       ],
       bgColor: "from-cappuccino/20 via-italian-gold/10 to-cream",
       accentColor: "italian-gold"
     },
     {
       id: "cakes",
-      title: "Dolci & Pasticceria",
-      description: "Concediti la nostra squisita collezione di dolci tradizionali italiani. Ogni dolce creazione è un capolavoro, realizzato con amore e ricette autentiche tramandate di generazione in generazione.",
+      title: t('cakesTitle'),
+      description: t('cakesDescription'),
       icon: "cake",
       items: [
-        "Tiramisù Classico",
-        "Cannoli Siciliani",
+        "Classic Tiramisù",
+        "Sicilian Cannoli",
         "Panna Cotta",
-        "Sfogliatelle Napoletane",
-        "Gelato Artigianale",
-        "Biscotti della Nonna"
+        "Neapolitan Sfogliatelle",
+        "Artisanal Gelato",
+        "Grandma's Cookies"
       ],
       bgColor: "from-warm-gold/15 via-cappuccino/25 to-cream",
       accentColor: "coffee"
@@ -120,10 +122,10 @@ const MenuSlider = () => {
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-italian-gold"></div>
           </div>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-coffee mb-4">
-            La Nostra Menu
+            {t('ourMenu')}
           </h2>
           <p className="font-inter text-lg text-muted-foreground italic">
-            Tre esperienze culinarie autentiche
+            {t('threeCulinaryExperiences')}
           </p>
         </div>
 
@@ -171,7 +173,7 @@ const MenuSlider = () => {
                           size="lg"
                           className="bg-gradient-gold hover:shadow-gold hover:shadow-lg transform hover:scale-105 transition-all duration-300 font-inter font-semibold px-8 py-3 rounded-full border border-italian-gold/30"
                         >
-                          Scopri di Più
+                          {t('discoverMore')}
                         </Button>
                       </div>
                       
@@ -184,21 +186,21 @@ const MenuSlider = () => {
                             </div>
                             <CardTitle className="font-playfair text-2xl text-coffee">{slide.title}</CardTitle>
                             <CardDescription className="font-inter text-coffee/70 italic">
-                              Tradizione italiana autentica
+                              {t('authenticItalianTradition')}
                             </CardDescription>
                           </CardHeader>
                           <CardContent className="text-center">
                             <div className="h-40 bg-gradient-to-br from-italian-gold/10 via-warm-gold/15 to-cappuccino/20 rounded-lg flex items-center justify-center mb-6 relative overflow-hidden border border-italian-gold/20">
                               <div className="absolute inset-0 bg-gradient-to-br from-italian-gold/10 via-transparent to-warm-gold/10 animate-slow-zoom"></div>
                               <span className="font-playfair text-coffee/60 italic text-lg relative z-10">
-                                Deliziose specialità italiane
+                                {t('deliciousItalianSpecialties')}
                               </span>
                               {/* Decorative elements */}
                               <div className="absolute top-2 right-2 w-2 h-2 bg-italian-gold/40 rounded-full"></div>
                               <div className="absolute bottom-3 left-3 w-1.5 h-1.5 bg-warm-gold/40 rounded-full"></div>
                             </div>
                             <p className="font-inter text-sm text-coffee/70 italic">
-                              Preparato fresco ogni giorno con ingredienti italiani autentici
+                              {t('preparedFreshDaily')}
                             </p>
                           </CardContent>
                         </Card>
@@ -249,9 +251,13 @@ const MenuSlider = () => {
         <div className="text-center mt-6">
           <button
             onClick={() => setIsAutoPlay(!isAutoPlay)}
-            className="font-inter text-sm text-coffee/60 hover:text-italian-gold transition-colors duration-300 italic"
+            className={`text-sm font-inter transition-all duration-300 ${
+              isAutoPlay 
+                ? 'text-italian-gold hover:text-warm-gold' 
+                : 'text-coffee/60 hover:text-coffee'
+            }`}
           >
-            {isAutoPlay ? "Pausa automatica" : "Riproduci automaticamente"}
+            {isAutoPlay ? 'Pause' : 'Play'} Auto-Play
           </button>
         </div>
       </div>

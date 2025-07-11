@@ -3,23 +3,41 @@ import { ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import frenchMenuCover from "@/assets/french-menu-cover.jpg";
+import galleryHeroFrench from "@/assets/gallery-hero-french.jpg";
+import Navigation from "@/components/Navigation";
+import Footer from "@/components/Footer";
+import { useLanguage } from "@/hooks/useLanguage";
 
-const menuData = [
-  {
-    title: "Frühstück & Brunch",
-    subtitle: "Tradition trifft Genuss – Der perfekte Start in den Tag",
-    items: [
-      { name: "Stoltze", description: "1 Brötchen, Butter, Konfitüre, gekochtes Ei", price: "6.90€" },
-      { name: "Goethe", description: "1 Brötchen, 1 Vollkornbrötchen, Butter, Konfitüre, Farmerschinken, Salami, Pastrami, Gouda, 2 Eier im Glas mit Schnittlauch", price: "13.50€" },
-      { name: "Jules Verne", description: "Baguette, Sauerteigroissant, Butter, Konfitüre, Trauben, französischer Käse, gekochtes Ei", price: "12.90€" },
-      { name: "Shakespeare", description: "Toastbrot, Butter, zwei Spiegeleier, knuspriger Bacon, Nürnberger Rostbratwürste, Baked Beans, gegrillte Tomate & Champignons", price: "14.90€" },
-      { name: "Shakshuka", description: "Heiße Schmorpfanne aus der orientalischen Küche mit Tomaten, Zwiebeln, Kreuzkümmel, Paprika, zwei pochierten Eiern", price: "13.50€" },
-      { name: "Fitness", description: "2 Vollkornbrötchen, Blütenhonig, Frischkäse, Hummus, Gouda, Pastrami, Granola Müsli, gekochtes Ei", price: "15.90€" },
-    ]
-  },
-  {
-    title: "Étagère-Frühstück",
-    subtitle: "Liebevoll zusammengestellte Etageren für 1-2 Personen",
+const Menu = () => {
+  const [currentPage, setCurrentPage] = useState(-1); // Start with cover (-1)
+  const [isFlipping, setIsFlipping] = useState(false);
+  const [flipDirection, setFlipDirection] = useState<'forward' | 'backward'>('forward');
+  const { t } = useLanguage();
+
+  // Touch gesture state
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
+  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+
+  // Minimum swipe distance to trigger page change
+  const minSwipeDistance = 50;
+
+  const menuData = [
+    {
+      title: t('breakfastBrunch'),
+      subtitle: t('breakfastSubtitle'),
+      items: [
+        { name: "Stoltze", description: "1 Brötchen, Butter, Konfitüre, gekochtes Ei", price: "6.90€" },
+        { name: "Goethe", description: "1 Brötchen, 1 Vollkornbrötchen, Butter, Konfitüre, Farmerschinken, Salami, Pastrami, Gouda, 2 Eier im Glas mit Schnittlauch", price: "13.50€" },
+        { name: "Jules Verne", description: "Baguette, Sauerteigroissant, Butter, Konfitüre, Trauben, französischer Käse, gekochtes Ei", price: "12.90€" },
+        { name: "Shakespeare", description: "Toastbrot, Butter, zwei Spiegeleier, knuspriger Bacon, Nürnberger Rostbratwürste, Baked Beans, gegrillte Tomate & Champignons", price: "14.90€" },
+        { name: "Shakshuka", description: "Heiße Schmorpfanne aus der orientalischen Küche mit Tomaten, Zwiebeln, Kreuzkümmel, Paprika, zwei pochierten Eiern", price: "13.50€" },
+        { name: "Fitness", description: "2 Vollkornbrötchen, Blütenhonig, Frischkäse, Hummus, Gouda, Pastrami, Granola Müsli, gekochtes Ei", price: "15.90€" },
+      ]
+    },
+    {
+      title: t('etagereBreakfast'),
+      subtitle: t('etagereSubtitle'),
     items: [
       { name: "Il Dolce Far Niente", description: "Frischkäse, Pesto, Tomate, Burrata, Manchego, Oliven, Parmaschinken, Salami, Pastrami, Grissini, gekochtes Ei", price: "17.50€ / 32.50€" },
       { name: "Royale", description: "Frischkäse, Graved Lachs, Tomaten- & Gurkenscheiben, rote Zwiebeln, Kapern, Olivenöl & Maldonsalz, gegrilltes Brioche-Brötchen", price: "18.50€ / 33.50€" },
@@ -207,19 +225,6 @@ const menuData = [
   }
 ];
 
-const Menu = () => {
-  const [currentPage, setCurrentPage] = useState(-1); // Start with cover (-1)
-  const [isFlipping, setIsFlipping] = useState(false);
-  const [flipDirection, setFlipDirection] = useState<'forward' | 'backward'>('forward');
-  
-  // Touch gesture state
-  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null);
-  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null);
-  const [isDragging, setIsDragging] = useState(false);
-
-  // Minimum swipe distance to trigger page change
-  const minSwipeDistance = 50;
-
   const nextPage = () => {
     if (currentPage < menuData.length - 1) {
       setIsFlipping(true);
@@ -313,17 +318,27 @@ const Menu = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-hero" style={{ 
-      background: 'linear-gradient(135deg, #f7f3f0 0%, #e8ddd4 100%)',
+    <div className="min-h-screen" style={{ 
+      backgroundImage: `url(${galleryHeroFrench})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundAttachment: 'fixed',
       fontFamily: '"Crimson Text", serif'
     }}>
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+      
+      {/* Content wrapper */}
+      <div className="relative z-10">
+      <Navigation />
+      
       {/* Navigation */}
-      <div className="container mx-auto px-4 pt-4 md:pt-8">
+      <div className="container mx-auto px-4 pt-20 md:pt-24">
         <Link to="/">
           <Button variant="ghost" className="mb-4 md:mb-8 text-coffee hover:text-italian-gold font-crimson text-sm md:text-base">
             <ArrowLeft className="mr-2 h-4 w-4" />
-            <span className="hidden sm:inline">Retour à l'accueil</span>
-            <span className="sm:hidden">Retour</span>
+            <span className="hidden sm:inline">{t('returnToHome')}</span>
+            <span className="sm:hidden">{t('returnShort')}</span>
           </Button>
         </Link>
       </div>
@@ -332,12 +347,12 @@ const Menu = () => {
       <div className="container mx-auto px-4 pb-8 md:pb-16">
         <div className="text-center mb-6 md:mb-12">
           <h1 className="font-playfair text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-coffee mb-2 md:mb-4" style={{ fontStyle: 'italic' }}>
-            <span className="hidden sm:inline">Menu du Café Libretto</span>
-            <span className="sm:hidden">Menu Libretto</span>
+            <span className="hidden sm:inline">{t('menuLibretto')}</span>
+            <span className="sm:hidden">{t('menuLibrettoShort')}</span>
           </h1>
           <p className="font-crimson text-base md:text-xl text-coffee/70 italic">
-            <span className="hidden sm:inline">Une expérience culinaire française authentique</span>
-            <span className="sm:hidden">Cuisine française authentique</span>
+            <span className="hidden sm:inline">{t('authenticFrenchExperience')}</span>
+            <span className="sm:hidden">{t('authenticFrenchCuisine')}</span>
           </p>
         </div>
 
@@ -393,14 +408,14 @@ const Menu = () => {
                   <div className="relative h-full flex flex-col justify-center items-center text-center p-6 md:p-12">
                     <div className="bg-cream/90 backdrop-blur-sm rounded-lg p-4 md:p-8 shadow-2xl border border-amber-200 max-w-sm md:max-w-none">
                       <h2 className="font-playfair text-3xl md:text-5xl font-bold text-amber-900 mb-2 md:mb-4" style={{ fontStyle: 'italic' }}>
-                        Menu
+                        {t('menuCover')}
                       </h2>
                       <div className="w-20 md:w-32 h-1 bg-amber-600 mx-auto mb-2 md:mb-4"></div>
                       <h3 className="font-crimson text-lg md:text-2xl text-amber-800 mb-3 md:mb-6" style={{ fontStyle: 'italic' }}>
                         Café Libretto
                       </h3>
                       <p className="font-crimson text-sm md:text-lg text-amber-700 italic">
-                        Cuisine Française Traditionnelle
+                        {t('traditionalFrenchCuisine')}
                       </p>
                       <div className="mt-4 md:mt-8 text-amber-600">
                         <div className="flex justify-center items-center space-x-2 md:space-x-4">
@@ -460,9 +475,9 @@ const Menu = () => {
                   <div className="text-center mt-4 md:mt-8 pt-3 md:pt-6 border-t-2 border-amber-200 flex-shrink-0">
                     <div className="flex justify-center items-center space-x-2 md:space-x-4 text-amber-500">
                       <span className="text-xs md:text-sm">❦</span>
-                      <span className="font-crimson text-xs md:text-sm italic">
-                        Page {currentPage + 1} de {menuData.length}
-                      </span>
+                                          <span className="font-crimson text-xs md:text-sm italic">
+                      {t('page')} {currentPage + 1} {t('of')} {menuData.length}
+                    </span>
                       <span className="text-xs md:text-sm">❦</span>
                     </div>
                   </div>
@@ -476,7 +491,7 @@ const Menu = () => {
                 onClick={prevPage}
                 disabled={isFlipping}
                 className="hidden md:block absolute left-0 top-0 w-20 h-full z-20 opacity-0 hover:opacity-100 hover:bg-gradient-to-r hover:from-amber-900/20 hover:to-transparent transition-opacity duration-300 rounded-l-xl cursor-pointer"
-                title="Page précédente"
+                title={t('previousPage')}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -494,7 +509,7 @@ const Menu = () => {
                 onClick={nextPage}
                 disabled={isFlipping}
                 className="hidden md:block absolute right-0 top-0 w-20 h-full z-20 opacity-0 hover:opacity-100 hover:bg-gradient-to-l hover:from-amber-900/20 hover:to-transparent transition-opacity duration-300 rounded-r-xl cursor-pointer"
-                title="Page suivante"
+                title={t('nextPage')}
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
                 onTouchEnd={handleTouchEnd}
@@ -513,12 +528,12 @@ const Menu = () => {
             {/* Swipe Instructions - All Devices */}
             <div className="text-center">
               <p className="text-amber-700 font-crimson text-sm md:text-base italic mb-1">
-                <span className="hidden sm:inline">Glissez pour tourner les pages ou utilisez les boutons</span>
-                <span className="sm:hidden">Glissez pour tourner les pages</span>
+                <span className="hidden sm:inline">{t('swipeToTurn')}</span>
+                <span className="sm:hidden">{t('swipeToTurnMobile')}</span>
               </p>
               <div className="flex items-center justify-center space-x-3 text-amber-500">
                 <span className="text-sm">←</span>
-                <span className="font-crimson text-sm">Swipe / Touch</span>
+                <span className="font-crimson text-sm">{t('swipeTouch')}</span>
                 <span className="text-sm">→</span>
               </div>
             </div>
@@ -533,7 +548,7 @@ const Menu = () => {
                     ? 'bg-amber-400/50 cursor-not-allowed' 
                     : 'bg-amber-600 hover:bg-amber-700 active:scale-95 shadow-lg'
                 }`}
-                title="Page précédente"
+                title={t('previousPage')}
               >
                 ‹
               </button>
@@ -545,7 +560,7 @@ const Menu = () => {
                     ? 'bg-amber-400/50 cursor-not-allowed' 
                     : 'bg-amber-600 hover:bg-amber-700 active:scale-95 shadow-lg'
                 }`}
-                title="Page suivante"
+                title={t('nextPage')}
               >
                 ›
               </button>
@@ -561,7 +576,7 @@ const Menu = () => {
                   ? 'bg-amber-600 scale-125 shadow-lg' 
                   : 'bg-amber-300 hover:bg-amber-500 active:scale-90'
               }`}
-              title="Couverture"
+              title={t('cover')}
             />
             {menuData.map((_, index) => (
               <button
@@ -572,7 +587,7 @@ const Menu = () => {
                     ? 'bg-amber-600 scale-125 shadow-lg' 
                     : 'bg-amber-300 hover:bg-amber-500 active:scale-90'
                 }`}
-                title={`Page ${index + 1}`}
+                title={`${t('page')} ${index + 1}`}
               />
             ))}
           </div>
@@ -581,13 +596,16 @@ const Menu = () => {
         {/* Call to Action */}
         <div className="text-center mt-12 md:mt-16">
           <p className="font-crimson text-lg md:text-xl text-coffee/70 mb-4 md:mb-6 italic px-4">
-            <span className="hidden sm:inline">Prêt à découvrir nos saveurs françaises authentiques ?</span>
-            <span className="sm:hidden">Découvrez nos saveurs françaises</span>
+            <span className="hidden sm:inline">{t('readyToDiscover')}</span>
+            <span className="sm:hidden">{t('discoverOurFlavors')}</span>
           </p>
           <Button className="bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-cream font-crimson text-base md:text-lg px-6 md:px-8 py-2 md:py-3 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 active:scale-95">
-            Réserver une Table
+            {t('reserveTable')}
           </Button>
         </div>
+      </div>
+      
+      <Footer />
       </div>
     </div>
   );

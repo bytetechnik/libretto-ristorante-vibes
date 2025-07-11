@@ -4,9 +4,11 @@ import Footer from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import aboutHeroImage from "@/assets/about-hero-artistic.jpg";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     setIsVisible(true);
@@ -46,7 +48,7 @@ const About = () => {
         }`}>
           <div className="relative">
             <h1 className="font-playfair text-7xl md:text-9xl font-bold text-white mb-8 tracking-tight drop-shadow-2xl leading-tight">
-              About
+              {t('about')}
               <span className="block md:inline bg-gradient-to-r from-italian-gold via-warm-gold to-italian-gold bg-clip-text text-transparent ml-0 md:ml-6">
                 Libretto
               </span>
@@ -58,7 +60,7 @@ const About = () => {
           </div>
           
           <p className="font-crimson text-2xl md:text-3xl text-white/95 italic drop-shadow-lg mb-8 leading-relaxed">
-            "Little Book" - Where Stories Come to Life
+            {t('littleBookWhereStories')}
           </p>
           
           {/* Enhanced decorative line */}
@@ -82,22 +84,18 @@ const About = () => {
               <div className="grid md:grid-cols-2 gap-12 items-center">
                 <div className="space-y-6">
                   <h2 className="font-playfair text-4xl md:text-5xl font-bold text-coffee mb-6">
-                    The Etymology
+                    {t('theEtymology')}
                   </h2>
                   <div className="space-y-4 font-crimson text-lg text-coffee/90 leading-relaxed">
                     <p>
-                      <strong className="text-italian-gold">Libretto</strong> is the euphonious word for 
-                      <em className="text-warm-gold"> "little book"</em>.
+                      <strong className="text-italian-gold">Libretto</strong> {t('librettoEuphonious')} 
+                      <em className="text-warm-gold"> {t('littleBook')}</em>.
                     </p>
                     <p>
-                      In particular, this refers to the texts or stories that are written by the 
-                      so-called librettists for opera, ballet or pantomime.
+                      {t('inParticularRefers')}
                     </p>
                     <p>
-                      Since the sung word is always longer than the written word, these "librettos" 
-                      are usually shorter than a novel. Thus, the term "libretto" – a diminutive of 
-                      the Italian word <em className="text-italian-gold">"libro"</em> (book) – emerged 
-                      as early as the beginning of the 18th century.
+                      {t('sinceSungWord')} <em className="text-italian-gold">{t('libro')}</em> ({t('book')}) – {t('emergedBeginning')}
                     </p>
                   </div>
                 </div>
@@ -108,10 +106,10 @@ const About = () => {
                     <div className="text-center space-y-4">
                       <div className="text-6xl text-italian-gold">📚</div>
                       <p className="font-playfair text-2xl text-coffee italic">
-                        "Little Book"
+                        {t('littleBook')}
                       </p>
                       <p className="font-inter text-sm text-coffee/70">
-                        Opera • Ballet • Pantomime
+                        {t('operaBalletPantomime')}
                       </p>
                     </div>
                   </div>
@@ -127,14 +125,11 @@ const About = () => {
           <Card className="mb-16 bg-gradient-to-r from-white/90 to-cream/90 backdrop-blur-sm border-cappuccino/20 shadow-elegant">
             <CardContent className="p-8 md:p-12 text-center">
               <h2 className="font-playfair text-4xl md:text-5xl font-bold text-coffee mb-8">
-                Our Philosophy
+                {t('ourPhilosophy')}
               </h2>
               <div className="max-w-4xl mx-auto space-y-6 font-crimson text-lg text-coffee/90 leading-relaxed">
                 <p className="text-xl">
-                  Just as librettists have always known how to captivate opera and ballet audiences 
-                  with their exciting or thrilling stories, we would like to invite your senses to 
-                  travel to another world with an extraordinary atmosphere and small and large 
-                  culinary delights.
+                  {t('justAsLibrettists')}
                 </p>
                 
                 {/* Artistic Image Gallery */}
@@ -153,10 +148,10 @@ const About = () => {
                         </div>
                         <div className="mt-6 text-center">
                           <h4 className="font-playfair text-xl font-bold text-coffee mb-2">
-                            Café Libretto Interior
+                            {t('cafeLibrettoInterior')}
                           </h4>
                           <p className="font-crimson text-sm text-coffee/70 italic leading-relaxed">
-                            Where stories come to life through coffee and conversation
+                            {t('whereStoriesComeLife')}
                           </p>
                         </div>
                       </div>
@@ -169,16 +164,16 @@ const About = () => {
                     <div className="space-y-6">
                       <div className="relative">
                         <h3 className="font-playfair text-3xl font-bold text-coffee mb-4">
-                          An Atmosphere Like No Other
+                          {t('atmosphereLikeNoOther')}
                         </h3>
                         <div className="absolute -left-4 top-0 w-1 h-full bg-gradient-gold rounded-full"></div>
                       </div>
                       <p className="font-crimson text-lg text-coffee/80 leading-relaxed">
-                        Step into our world where every corner tells a story, where the aroma of freshly brewed coffee mingles with the whispers of history, creating an ambiance that transcends the ordinary café experience.
+                        {t('stepIntoOurWorld')}
                       </p>
                       <div className="bg-gradient-to-r from-italian-gold/10 to-warm-gold/10 rounded-2xl p-6">
                         <p className="font-inter text-coffee/70 italic text-center">
-                          "A place where time slows down and stories unfold over perfectly crafted cups."
+                          {t('placeWhereTime')}
                         </p>
                       </div>
                     </div>
@@ -187,8 +182,7 @@ const About = () => {
                 
                 <Separator className="my-8 bg-gradient-gold h-px" />
                 <p className="font-inter text-lg text-italian-gold font-medium">
-                  We wish you a pleasant stay in our hotel and would be pleased to welcome you 
-                  again at Café Libretto on your next stroll through the city.
+                  {t('weWishPleasant')}
                 </p>
               </div>
             </CardContent>
@@ -200,10 +194,10 @@ const About = () => {
               <div className="space-y-8">
                 <div className="text-center mb-12">
                   <h2 className="font-playfair text-4xl md:text-5xl font-bold text-coffee mb-4">
-                    The Fountain of Virtue
+                    {t('theFountainOfVirtue')}
                   </h2>
                   <p className="font-crimson text-xl text-italian-gold italic">
-                    A Legacy of Virtue at Café Libretto
+                    {t('legacyOfVirtue')}
                   </p>
                 </div>
 
@@ -211,32 +205,25 @@ const About = () => {
                   {/* Content */}
                   <div className="space-y-6 font-crimson text-lg text-coffee/90 leading-relaxed">
                     <p>
-                      The Virtue Fountain is a pump well that stood on the Heilig-Geist-Plätzchen 
-                      square until the city was destroyed in 1944. A medieval draw well was 
-                      documented at this location in the city as early as <strong className="text-italian-gold">1453</strong>.
+                      {t('virtueFountainPump')} <strong className="text-italian-gold">1453</strong> {t('documented')}
                     </p>
                     
                     <p>
-                      A pump well was built here in <strong className="text-italian-gold">1768</strong>. 
-                      This was renovated several times, for example in 1822 or 1823, then in 1887, 
-                      and finally in 1967.
+                      {t('pumpWellBuilt')} <strong className="text-italian-gold">1768</strong> {t('built')} 
+                      {t('renovatedSeveralTimes')}
                     </p>
 
                     <div className="bg-cappuccino/10 rounded-xl p-6 my-8">
                       <h3 className="font-playfair text-2xl font-bold text-coffee mb-4">
-                        The Allegory of Virtue
+                        {t('theAllegoryOfVirtue')}
                       </h3>
                       <p>
-                        The Fountain of Virtue depicts the allegory of Virtue; a figure said to have 
-                        originated from the first fountain in 1768. The Rococo figure stands, like 
-                        medieval figures of the Virgin Mary, on a globe symbolizing vice, which she 
-                        tramples underfoot.
+                        {t('fountainDepictsAllegory')}
                       </p>
                     </div>
 
                     <p>
-                      She carries a measuring rod, a sword, and a ball weight; comparable to the 
-                      statuette in the Justitia Fountain on the Römerberg.
+                      {t('carriesMeasuringRod')}
                     </p>
                   </div>
 
@@ -254,10 +241,10 @@ const About = () => {
                         </div>
                         <div className="mt-6 text-center">
                           <h4 className="font-playfair text-xl font-bold text-coffee mb-2">
-                            The Fountain of Virtue
+                            {t('theFountainOfVirtueTitle')}
                           </h4>
                           <p className="font-crimson text-sm text-coffee/70 italic leading-relaxed">
-                            Rococo figure from 1768 - A symbol of virtue triumphant
+                            {t('rococoFigure')}
                           </p>
                         </div>
                       </div>
@@ -270,7 +257,7 @@ const About = () => {
                     {/* Additional artistic quote */}
                     <div className="bg-gradient-to-r from-coffee/5 to-italian-gold/5 rounded-2xl p-6 border border-italian-gold/20">
                       <p className="font-crimson text-center text-coffee/80 italic">
-                        "Standing as a testament to timeless virtue, this fountain has witnessed centuries of stories unfold."
+                        {t('standingTestament')}
                       </p>
                     </div>
                   </div>

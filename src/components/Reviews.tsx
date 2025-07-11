@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Reviews = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const timer = setTimeout(() => setIsVisible(true), 300);
@@ -62,10 +64,7 @@ const Reviews = () => {
           isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
         }`}>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-coffee mb-6">
-            What Our Guests
-            <span className="bg-gradient-gold bg-clip-text text-transparent ml-3">
-              Say
-            </span>
+            {t('whatOurGuestsSay')}
           </h2>
           
           {/* Rating Summary */}
@@ -89,12 +88,12 @@ const Reviews = () => {
             </div>
             <div className="h-8 w-px bg-cappuccino/30"></div>
             <span className="text-coffee/70 font-inter">
-              {totalReviews} Google Reviews
+              {totalReviews} {t('googleReviews')}
             </span>
           </div>
           
           <p className="font-crimson text-xl text-coffee/80 italic max-w-3xl mx-auto">
-            Stories from our libretto of memorable experiences
+            {t('storiesFromLibretto')}
           </p>
         </div>
 
@@ -171,10 +170,10 @@ const Reviews = () => {
           <Card className="inline-block bg-gradient-to-r from-italian-gold/10 to-warm-gold/10 border-cappuccino/20 shadow-elegant">
             <CardContent className="p-6">
               <h3 className="font-playfair text-xl font-bold text-coffee mb-2">
-                Share Your Story
+                {t('shareYourStory')}
               </h3>
               <p className="font-crimson text-coffee/80 mb-4">
-                Help us write new pages in our libretto of experiences
+                {t('helpUsWritePages')}
               </p>
               <a 
                 href="https://www.google.com/maps/place/Caf%C3%A9+Libretto/@50.1133164,8.6818361,17z/data=!4m8!3m7!1s0x47bd0ea5b1608a9b:0x2debb2591f7a58d2!8m2!3d50.113313!4d8.684411!9m1!1b1!16s%2Fg%2F1tp2zhlf?entry=ttu&g_ep=EgoyMDI1MDcwNy4wIKXMDSoASAFQAw%3D%3D"
@@ -182,7 +181,7 @@ const Reviews = () => {
                 rel="noopener noreferrer"
                 className="inline-flex items-center font-inter font-medium text-italian-gold hover:text-warm-gold transition-colors duration-300"
               >
-                Leave a Google Review
+                {t('leaveGoogleReview')}
                 <Star className="w-4 h-4 ml-2" />
               </a>
             </CardContent>

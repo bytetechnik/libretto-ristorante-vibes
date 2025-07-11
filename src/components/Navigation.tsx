@@ -183,12 +183,20 @@ const Navigation = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-cappuccino/20 bg-white/98 backdrop-blur-xl animate-fade-in-up">
+          <div className={`md:hidden border-t transition-all duration-500 animate-fade-in-up ${
+            isScrolled 
+              ? 'border-cappuccino/20 bg-white/98 backdrop-blur-xl' 
+              : 'border-white/20 bg-coffee/95 backdrop-blur-xl'
+          }`}>
             <div className="px-2 pt-4 pb-6 space-y-2">
               {navItems.map((item, index) => {
                 const commonProps = {
                   key: item.label,
-                  className: "block px-4 py-3 font-inter text-coffee hover:text-italian-gold hover:bg-gradient-to-r hover:from-italian-gold/10 hover:to-warm-gold/10 transition-all duration-300 rounded-lg font-medium relative group",
+                  className: `block px-4 py-3 font-inter transition-all duration-300 rounded-lg font-medium relative group ${
+                    isScrolled 
+                      ? 'text-coffee hover:text-italian-gold hover:bg-gradient-to-r hover:from-italian-gold/10 hover:to-warm-gold/10' 
+                      : 'text-white hover:text-italian-gold hover:bg-gradient-to-r hover:from-white/10 hover:to-white/15'
+                  }`,
                   onClick: () => setIsMenuOpen(false),
                   style: { animationDelay: `${index * 100}ms` }
                 };
@@ -218,7 +226,7 @@ const Navigation = () => {
                 );
               })}
               <div className="px-4 py-3">
-                <LanguageSwitcher isScrolled={true} />
+                <LanguageSwitcher isScrolled={isScrolled} />
                 <Button 
                   size="sm"
                   className="w-full bg-gradient-gold hover:shadow-gold hover:shadow-lg transition-all duration-300 font-inter font-semibold py-3 rounded-full relative overflow-hidden group"

@@ -1,61 +1,64 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Leaf, Sun, Car, Wifi, Users, Coffee, CreditCard, Heart } from "lucide-react";
+import { useLanguage } from "@/hooks/useLanguage";
 
 const Facilities = () => {
+  const { t } = useLanguage();
+
   const facilities = [
     {
       icon: Leaf,
-      title: "Freshness Guarantee",
-      description: "Always fresh ingredients and, where possible, locally sourced.",
+      title: t('freshnessGuarantee'),
+      description: t('freshnessDescription'),
       color: "from-green-500/10 to-emerald-500/10",
       iconColor: "text-green-600"
     },
     {
       icon: Sun,
-      title: "Outdoor Area",
-      description: "Enjoy your coffee on our sunny terrace.",
+      title: t('outdoorArea'),
+      description: t('outdoorDescription'),
       color: "from-yellow-500/10 to-orange-500/10",
       iconColor: "text-orange-500"
     },
     {
       icon: Car,
-      title: "Parking",
-      description: "You can always find parking in the surrounding parking garages.",
+      title: t('parking'),
+      description: t('parkingDescription'),
       color: "from-blue-500/10 to-cyan-500/10",
       iconColor: "text-blue-600"
     },
     {
       icon: Wifi,
-      title: "Free WiFi",
-      description: "High-speed internet perfect for work, study, or staying connected.",
+      title: t('freeWifi'),
+      description: t('wifiDescription'),
       color: "from-purple-500/10 to-violet-500/10",
       iconColor: "text-purple-600"
     },
     {
       icon: Users,
-      title: "Private Events",
-      description: "Host your special occasions with authentic Italian catering.",
+      title: t('privateEvents'),
+      description: t('eventsDescription'),
       color: "from-pink-500/10 to-rose-500/10",
       iconColor: "text-pink-600"
     },
     {
       icon: Coffee,
-      title: "Take-Home Beans",
-      description: "Premium Italian coffee beans and ground coffee for home brewing.",
+      title: t('takeHomeBeans'),
+      description: t('beansDescription'),
       color: "from-amber-500/10 to-yellow-500/10",
       iconColor: "text-amber-600"
     },
     {
       icon: CreditCard,
-      title: "All Payment Methods",
-      description: "Cash, cards, mobile payments - we accept all major payment methods.",
+      title: t('allPaymentMethods'),
+      description: t('paymentDescription'),
       color: "from-gray-500/10 to-slate-500/10",
       iconColor: "text-gray-600"
     },
     {
       icon: Heart,
-      title: "Family Friendly",
-      description: "Wheelchair accessible with baby changing facilities and kids menu.",
+      title: t('familyFriendly'),
+      description: t('familyDescription'),
       color: "from-red-500/10 to-pink-500/10",
       iconColor: "text-red-500"
     }
@@ -78,10 +81,10 @@ const Facilities = () => {
             <div className="h-px w-20 bg-gradient-to-l from-transparent to-italian-gold"></div>
           </div>
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-coffee mb-4">
-            Le Nostre Strutture
+            {t('ourFacilities')}
           </h2>
           <p className="font-inter text-lg text-muted-foreground italic max-w-2xl mx-auto">
-            Comfort e convenienza per rendere la tua esperienza italiana indimenticabile
+            {t('comfortConvenience')}
           </p>
         </div>
 
@@ -135,7 +138,7 @@ const Facilities = () => {
           <div className="flex items-center justify-center">
             <div className="h-px w-24 bg-gradient-to-r from-transparent to-italian-gold/50"></div>
             <div className="mx-4 font-playfair text-italian-gold/60 italic text-sm">
-              Benvenuti alla famiglia Libretto
+              {t('welcomeToLibrettoFamily')}
             </div>
             <div className="h-px w-24 bg-gradient-to-l from-transparent to-italian-gold/50"></div>
           </div>
