@@ -72,7 +72,7 @@ const Hero = () => {
           <div className="relative inline-block">
             <div className="absolute inset-0 bg-italian-gold/20 rounded-full blur-2xl scale-150 animate-pulse"></div>
             <img 
-              src="/lovable-uploads/cdb32fff-8cdf-4c49-9efd-a02207927c65.png" 
+              src="/uploads/cdb32fff-8cdf-4c49-9efd-a02207927c65.png" 
               alt="Café Libretto Logo" 
               className="relative h-28 md:h-36 mx-auto mb-6 drop-shadow-2xl hover:scale-105 transition-transform duration-500"
             />

@@ -10,7 +10,7 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-4">
             <img 
-              src="/lovable-uploads/cdb32fff-8cdf-4c49-9efd-a02207927c65.png" 
+              src="/uploads/cdb32fff-8cdf-4c49-9efd-a02207927c65.png" 
               alt="Café Libretto" 
               className="h-16 mb-4"
             />

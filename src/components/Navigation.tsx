@@ -46,8 +46,8 @@ const Navigation = () => {
               {/* Main Logo - Switch between white and black based on scroll */}
               <img 
                 src={isScrolled 
-                  ? "/lovable-uploads/9ecbe739-3bdf-49bc-a9c7-5e48f6b66f6f.png" 
-                  : "/lovable-uploads/cdb32fff-8cdf-4c49-9efd-a02207927c65.png"
+                  ? "/uploads/9ecbe739-3bdf-49bc-a9c7-5e48f6b66f6f.png" 
+                  : "/uploads/cdb32fff-8cdf-4c49-9efd-a02207927c65.png"
                 }
                 alt="Café Libretto" 
                 className={`relative transition-all duration-500 drop-shadow-lg group-hover:drop-shadow-2xl ${

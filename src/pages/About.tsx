@@ -141,7 +141,7 @@ const About = () => {
                       <div className="relative bg-white rounded-3xl p-6 shadow-elegant group-hover:shadow-gold transition-all duration-500">
                         <div className="aspect-[4/3] overflow-hidden rounded-2xl">
                           <img 
-                            src="/lovable-uploads/ab01f7e2-ebef-4e5d-9af9-159fec66683e.png"
+                            src="/uploads/ab01f7e2-ebef-4e5d-9af9-159fec66683e.png"
                             alt="Interior of Café Libretto showing dining area and display case"
                             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                           />
@@ -234,7 +234,7 @@ const About = () => {
                       <div className="relative bg-white rounded-3xl p-6 shadow-elegant group-hover:shadow-gold transition-all duration-500">
                         <div className="aspect-[3/4] overflow-hidden rounded-2xl">
                           <img 
-                            src="/lovable-uploads/4ceae6e5-7085-4c94-9ba4-b2493c34111f.png"
+                            src="/uploads/4ceae6e5-7085-4c94-9ba4-b2493c34111f.png"
                             alt="The Fountain of Virtue - Historical statue depicting the allegory of Virtue"
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                           />
