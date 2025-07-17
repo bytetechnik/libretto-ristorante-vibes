@@ -415,7 +415,7 @@ const Menu = () => {
                         Café Libretto
                       </h3>
                       <p className="font-crimson text-sm md:text-lg text-amber-700 italic">
-                        {t('traditionalFrenchCuisine')}
+                        {t('traditionalItalianCuisine')}
                       </p>
                       <div className="mt-4 md:mt-8 text-amber-600">
                         <div className="flex justify-center items-center space-x-2 md:space-x-4">
